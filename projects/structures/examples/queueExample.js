@@ -4,21 +4,18 @@ const tasks = new Queue();
 
 tasks.enqueue(1);
 tasks.enqueue(2);
-
-setTimeout(() => {
-    tasks.enqueue(8);
-}, 100);
-
 tasks.enqueue(3);
 tasks.enqueue(4);
+tasks.enqueue(5);
 
 setTimeout(() => {
     tasks.enqueue(6);
     tasks.enqueue(7);
 });
 
-tasks.enqueue(5);
-
+setTimeout(() => {
+    tasks.enqueue(8);
+}, 200);
 
 
 const intervalId = setInterval(() => {
@@ -26,4 +23,4 @@ const intervalId = setInterval(() => {
     task && console.log(`Implementing task ${task}`);
 }, 10);
 
-setTimeout(() => clearInterval(intervalId), 1000);
+setTimeout(() => clearInterval(intervalId), 3000);

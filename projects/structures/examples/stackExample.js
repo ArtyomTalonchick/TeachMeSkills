@@ -13,14 +13,14 @@ const checkIsBalanced = (expression) => {
         if (symbol === '(') {
             stack.push(symbol);
         } else if (symbol === ')') {
-            if (!stack.pop()) {
-              return false;
-            }
+            const prev = stack.pop();
+            if (!prev) return false;
         }
     }
+
     return stack.size() === 0;
-};
+}
 
 console.log(checkIsBalanced("((()()))"));
-console.log(checkIsBalanced("(()()"));
-console.log(checkIsBalanced("(()()))"));
+console.log(checkIsBalanced("(()"));
+console.log(checkIsBalanced("())"));
