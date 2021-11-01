@@ -1,6 +1,6 @@
 const HashTable = require("../structures/hashTable");
 
-const _data = require("./usersMock");
+const _data = require("../../usersMock");
 let data1 = [], data2 = [];
 for (let i = 0; i < 100; i ++) {
     data1 = [...data1, ..._data];
