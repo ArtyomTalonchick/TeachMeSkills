@@ -14,7 +14,7 @@ class MySet {
         return true;
     }
 
-    remove = (item) => {
+    delete = (item) => {
         const index = this.collection.indexOf(item);
 
         if(index === -1) return false;
