@@ -3,7 +3,7 @@ const defaultHashFunc = (value) => value.toString();
 class HashTable {
     constructor(hashFunction) {
         this.hashFunction = hashFunction || defaultHashFunc;
-        this.storage = [];
+        this.storage = {};
     }
 
     add = (value) => {
@@ -17,12 +17,14 @@ class HashTable {
 
     remove = (value) => {
         let hash = this.hashFunction(value);
-        if (this.storage[hash].length === 1) {
+        if (!this.storage[hash]) {
+            return;
+        } else if (this.storage[hash].length === 1) {
             delete this.storage[hash];
         } else {
             for (let i = 0; i < this.storage[hash].length; i++) {
                 if (this.storage[hash][i][0] === value) {
-                    return delete this.storage[hash][i];                    
+                    return delete this.storage[hash][i];
                 }
             }
         }

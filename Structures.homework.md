@@ -1,7 +1,17 @@
 # Tests. Homework.
 
 ### **1. Поиск гласных**
-Нужно написать функцию, принимающую строку в качестве аргумента и возвращающую массив гласных, которые содеожаться в строке
+Нужно написать функцию, принимающую строку в качестве аргумента и возвращающую массив гласных, которые содержаться в строке
+
+Пример ввода 
+```
+const string = "AaBaaaai";
+```
+
+Пример вывода 
+```
+const string = [a, i];
+```
 
 
 ### **2. Хранение времени получения сообщений**
@@ -24,7 +34,7 @@ setTimeout(() => addMessage(messages[2]), 2000);
 
 setTimeout() => {
     messages.splice(1, 1);
-    messages.forEach(message => getTimeOfMessage(messages));
+    messages.forEach(message => console.log(getTimeOfMessage(messages)));
 }, 2100);
 
 ```
@@ -36,9 +46,9 @@ setTimeout() => {
 
 Пример входных данных:
 ```
-["tom", "xyz", "mot", "xel", "xyz", "zxy", "yxz"]
+["tom", "xyz", "mot", "xel", "zXy", "yxz"]
 ```
 Пример выходных данных:
 ```
-[["tom", "mot"], ["xyz", "zxy", "yxz"], ["xel"]]
+[["tom", "mot"], ["xyz", "zXy", "yxz"], ["xel"]]
 ```

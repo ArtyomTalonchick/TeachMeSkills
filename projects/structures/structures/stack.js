@@ -12,7 +12,9 @@ class Stack {
 
         this.count++;
     }
-    
+
+    peek = () => this.head?.value;
+
     pop = () => {
         const result = this.peek();
 
@@ -24,11 +26,7 @@ class Stack {
         return result;
     }
 
-    peek = () => this.head?.value;
-
-
     size = () => this.count;
-
 }
 
 module.exports = Stack;

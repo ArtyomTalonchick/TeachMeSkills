@@ -10,7 +10,7 @@ class Queue {
             value,
         };
 
-        if (this.head) {
+        if (this.count !== 0) {
             this.tail.previous = node;
             this.tail = node;
         } else {
@@ -20,19 +20,22 @@ class Queue {
 
         this.count++;
     }
+    front = () => this.head?.value;
     
     dequeue = () => {
         const result = this.front();
 
-        this.head = this.head?.previous;
-        this.count--;
+        if (this.head) {
+            this.head = this.head?.previous;
+            this.count--;
+        }
 
         return result;
     }
 
-    front = () => this.head?.value;
-
     size = () => this.count;
+
+    isEmpty = () => this.count === 0;
 
 }
 
