@@ -32,7 +32,7 @@ addMessage(messages[0]);
 setTimeout(() => addMessage(messages[1]), 1000);
 setTimeout(() => addMessage(messages[2]), 2000);
 
-setTimeout() => {
+setTimeout(() => {
     messages.splice(1, 1);
     messages.forEach(message => console.log(getTimeOfMessage(messages)));
 }, 2100);
