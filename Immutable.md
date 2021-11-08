@@ -184,4 +184,7 @@ getName(person);
 # <a name="debugging"></a>  Отладка функциональных композиций
 
 
+---
+#Источники
+
 [Функциональное программирование](https://frontend-stuff.com/blog/javascript-functional-programming)
