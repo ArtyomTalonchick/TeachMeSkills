@@ -182,7 +182,9 @@ getName(person);
 
 
 # <a name="debugging"></a>  Отладка функциональных композиций
-
+```
+const trace = msg => x => (console.log(msg, x), x);
+```
 
 ---
 #Источники
