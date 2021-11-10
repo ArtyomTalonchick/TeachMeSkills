@@ -238,6 +238,7 @@ export {default as User} from "./user.js";
 Решение:
 
 **`import(module)`** - загружает модуль и возвращает промис, результатом которого становится объект модуля, содержащий все его экспорты
+
 -  
   ```
     import(getModuleName())
@@ -289,6 +290,13 @@ export {default as User} from "./user.js";
     npx eslint --init
 ```
 
+Проверка файла `.eslintrc`
+```
+    npx eslint [files]
+```
+
+structures
+
 Отключить проверку в конктретном меесте
 ```
     /* eslint-disable no-alert, no-console */
@@ -324,12 +332,17 @@ export {default as User} from "./user.js";
 Установка `Prettier`
 ```
     npm install prettier --save-dev
+    npm install eslint-plugin-prettier --save-dev    
     npm install eslint-config-prettier --save-dev
 ```
 
 Использовать `Prettier` в `.eslintrc`
 ```
     "extends": [ 
+        ...
+        "prettier"
+    ],
+    "plugins": [
         ...
         "prettier"
     ],
