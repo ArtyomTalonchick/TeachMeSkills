@@ -1,0 +1,26 @@
+<!-- <template id="tmpl">
+    <style> p { font-weight: bold; } </style>
+    <p>Shadow text</p>
+</template> -->
+
+
+<!-- elem.shadowRoot.append(tmpl.content.cloneNode(true)); -->
+
+
+<style>
+    p { color: red; }
+</style>
+  
+<div id="elem"></div>
+
+<script>
+    const elem = document.getElementById("elem");
+    elem.attachShadow({mode: 'open'});
+    elem.shadowRoot.innerHTML = `
+        <style> p { font-weight: bold; } </style>
+        <p>Shadow text</p>
+    `;
+
+    alert(document.querySelectorAll('p').length);
+    alert(elem.shadowRoot.querySelectorAll('p').length);
+</script>

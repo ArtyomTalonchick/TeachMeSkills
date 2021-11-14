@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+
+    <my-button>
+        <button slot="username">Click me</button>
+    </my-button>
+    
+    <template id="tmpl">
+        <slot name="username"></slot>
+    </template> 
+
+    <script>
+        customElements.define("my-button", class extends HTMLElement {
+            connectedCallback() {
+                this.attachShadow({mode: "open"});
+                this.shadowRoot.innerHTML = ``;
+                this.shadowRoot.append(tmpl.content.cloneNode(true));
+                
+                this.shadowRoot.firstElementChild.onclick = 
+                    e => alert("Внутренний целевой элемент: " + console.log(e.composedPath()));
+            }
+        });
+        
+        document.onclick = e  => alert("Внутренний целевой элемент: " + console.log(e.composedPath()));
+    </script>
+</body>
+
+</html>

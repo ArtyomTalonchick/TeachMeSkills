@@ -1,0 +1,29 @@
+<my-button></my-button>
+
+<template id="tmpl">
+    <button>Click me</button>
+</template>
+<script>
+    customElements.define("my-button", class extends HTMLElement {
+        connectedCallback() {
+            this.attachShadow({mode: "open"});
+            this.shadowRoot.innerHTML = ``;
+            this.shadowRoot.append(tmpl.content.cloneNode(true));
+            this.shadowRoot.firstElementChild.onclick = 
+                e => alert("Внутренний целевой элемент: " + e.target.tagName);
+        }
+    });
+    
+    document.onclick = e => alert("Внешний целевой элемент: " + e.target.tagName);
+</script>
+
+
+<!--  -->
+
+<my-button>
+    <button slot="username">Click me</button>
+</my-button>
+
+<template id="tmpl">
+    <slot name="username"></slot>
+</template> 
