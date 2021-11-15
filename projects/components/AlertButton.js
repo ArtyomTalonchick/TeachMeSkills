@@ -1,17 +1,25 @@
 class AlertButton extends HTMLButtonElement {
     connectedCallback() {
-        this.addEventListener("click", this.hanldeClick);
+        this.addListeners();
     }
 
     disconnectedCallback() {
-        this.removeEventListener("click", this.hanldeClick);
+        this.removeListeners();
     }
 
+    addListeners = () => {
+        this.addEventListener("click", this.handleClick);
+    }
 
-    hanldeClick = () => {
+    removeListeners = () => {
+        this.removeEventListener("click", this.handleClick);
+    }
+
+    handleClick = () => {
         const message = this.getAttribute("message");
         alert(message);
     }
 }
-  
-export { AlertButton };
+
+
+export {AlertButton};

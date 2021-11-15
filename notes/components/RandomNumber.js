@@ -1,4 +1,4 @@
-const DEFAULTS_OPTIONS = {
+const DEFAULT_OPTIONS = {
     min: 0,
     max: 100,
     interval: 1000,
@@ -7,16 +7,14 @@ const DEFAULTS_OPTIONS = {
 class RandomNumber extends HTMLElement {
     connectedCallback() {
         this.updateValue();
-        this.startInterval();
     }
 
     disconnectedCallback() {
         this.stopInterval();
     }
 
-    
     static get observedAttributes() {
-        return ["min", "max", "interval"];
+        return ["interval"];
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
@@ -27,7 +25,7 @@ class RandomNumber extends HTMLElement {
     }
 
     startInterval = () => {
-        const interval = this.getAttribute("interval") || DEFAULTS_OPTIONS["interval"];
+        const interval = +this.getAttribute("interval") || DEFAULT_OPTIONS["interval"];
         this.intervalId = setInterval(this.updateValue, interval);
     }
 
@@ -37,12 +35,12 @@ class RandomNumber extends HTMLElement {
     }
 
     updateValue = () => {
-        const min = +this.getAttribute("min") || DEFAULTS_OPTIONS["min"];
-        const max = +this.getAttribute("max") || DEFAULTS_OPTIONS["max"];
+        const min = +this.getAttribute("min") || DEFAULT_OPTIONS["min"];
+        const max = +this.getAttribute("max") || DEFAULT_OPTIONS["max"];
 
         const value = Math.round(Math.random() * (max - min) + min);
         this.innerHTML = value;
     }
 }
 
-export { RandomNumber };
+export {RandomNumber};

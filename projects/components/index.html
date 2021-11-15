@@ -4,7 +4,6 @@
 </head>
 
 <body>
-
     <my-button>
         <button slot="username">Click me</button>
     </my-button>
@@ -17,16 +16,16 @@
         customElements.define("my-button", class extends HTMLElement {
             connectedCallback() {
                 this.attachShadow({mode: "open"});
-                this.shadowRoot.innerHTML = ``;
                 this.shadowRoot.append(tmpl.content.cloneNode(true));
-                
                 this.shadowRoot.firstElementChild.onclick = 
-                    e => alert("Внутренний целевой элемент: " + console.log(e.composedPath()));
+                    e => alert("Внутренний целевой элемент: " + e.target.tagName);
             }
         });
         
-        document.onclick = e  => alert("Внутренний целевой элемент: " + console.log(e.composedPath()));
+        document.onclick = e => alert("Внешний целевой элемент: " + e.target.tagName);
     </script>
+
+    <!-- <script type="module" src="index.js"></script> -->
 </body>
 
 </html>

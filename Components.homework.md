@@ -23,9 +23,9 @@ details:hover { cursor: pointer }
 
 <details>
     <summary>
-        Пример внешнего видв
+        Пример внешнего видa
     </summary>
-    ![Пример внешнего видв](./assets/components/hw.menu.example.png)
+    <img alt="Пример внешнего видa" src="./assets/components/hw.menu.example.png">
 </details>
 
 
