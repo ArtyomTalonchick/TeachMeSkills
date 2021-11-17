@@ -1,0 +1,15 @@
+@import "./colors.scss";
+
+body {
+    background-color: antiquewhite;
+}
+
+div {
+    background-color:azure;
+    padding: 10px;
+    color: $primary_color;
+    
+    div {
+        background-color: aqua;
+    }
+}
