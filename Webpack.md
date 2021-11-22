@@ -184,10 +184,15 @@ module.exports = {
 }
 ```
 
+Babel поддерживает собственную конфигурацию в файле `.babelrc`
+Примеры плагинов: `@babel/proposal-class-properties`, `@babel/plugin-transform-classes`, `@babel/plugin-transform-arrow-functions`
+
 # <a name="plugins"></a>  Плагины
 
 **Плагины** позволяют выполнять задачи после сборки бандла
 
+
+### <a name="HtmlWebpackPlugin"></a>  HtmlWebpackPlugin
 **HtmlWebpackPlugin** упрощает создание файлов HTML для обслуживания пакетов веб-пакетов.
 
 Установка:
@@ -207,6 +212,21 @@ module.exports = {
 ```
 
 [Опции](https://github.com/jantimon/html-webpack-plugin#options)
+
+### <a name="HtmlWebpackPlugin"></a>  HtmlWebpackPlugin
+[CleanWebpackPlugin](https://www.npmjs.com/package/clean-webpack-plugin) удаляет все файлы внутри каталога `output.path` webpack, а также все неиспользуемые ресурсы webpack после каждой успешной перестройки
+
+### <a name="Dotenv"></a>  Dotenv
+[Dotenv](https://www.npmjs.com/package/dotenv) - модуль с нулевой зависимостью, который загружает переменные среды из файла `.env` в `process.env`
+
+### <a name="DefinePlugin"></a>  DefinePlugin
+[DefinePlugin](https://webpack.js.org/plugins/define-plugin/) - заменяет переменные в вашем коде другими значениями или выражениями во время компиляции
+
+
+### <a name="CopyWebpackPlugin"></a>  CopyWebpackPlugin
+[CopyWebpackPlugin](https://webpack.js.org/plugins/copy-webpack-plugin/) - https://webpack.js.org/plugins/copy-webpack-plugin/
+
+
 
 # <a name="server"></a>  Сервер для разработки
 
