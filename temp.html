@@ -1,10 +1,110 @@
 <!DOCTYPE html>
-<html>
-<head>
-</head>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <template id="tmpl">
+      <style>
+        ul {
+          padding-left: 30px;
+        }
+        ::slotted([slot="title"]) {
+          cursor: pointer;
+        }
+        ::slotted([slot="item"]) {
+          cursor: pointer;
+        }
+        ::slotted(span:hover) {
+          font-size: 18px;
+          font-weight: bold;
+        }
+        ::slotted(li:hover) {
+          font-size: 18px;
+          font-weight: bold;
+        }
+        ::slotted([slot="title"])::before {    
+          font-size: 14px;
+        }
+        ul {
+          display: none;
+        }
+        .closed ul {
+          display: block;
+        }
+      </style>
 
-<body>
-    <script src="temp.js"></script>    
-</body>
+      <div class="menu">
+        <slot name="titlename"></slot>
+        <slot name="title"></slot>
+        <ul>
+          <slot name="item"></slot>
+        </ul>
+      </div>
+    </template>
 
-</html>
+    <script>
+      customElements.define("tree-menu", class extends HTMLElement {
+          connectedCallback() {
+
+            this.attachShadow({ mode: "open" });
+            //document.getElementById("menu").addEventListener("click", e => console.log(e));
+            this.shadowRoot.append(tmpl.content.cloneNode(true));
+            this.shadowRoot.querySelector('slot[name="title"]').onclick =
+              () => {
+                this.shadowRoot
+                  .querySelector(".menu")
+                  .classList.toggle("closed");
+              };
+          }
+        }
+      );
+    </script>
+
+    <tree-menu id="menu">
+      <span slot="title">Царства живых организмов</span>
+      <tree-menu slot="item">
+        <span slot="title">Бактерии</span>
+        <li slot="item">Эндоспоры</li>
+      </tree-menu>
+
+      <tree-menu slot="item">
+        <span slot="title">Простейшие</span>
+        <li slot="item">Жгутиковые</li>
+        <li slot="item">Корненожки</li>
+        <li slot="item">Споровики</li>
+        <li slot="item">Инфузории</li>
+        <li slot="item">Солнечники</li>
+        <li slot="item">Радиолярии</li>
+      </tree-menu>
+
+      <tree-menu slot="item">
+        <span slot="title">Грибы</span>
+        <li slot="item">Хитридиомицеты</li>
+        <li slot="item">Зигомицеты</li>
+        <li slot="item">Аскомицеты</li>
+        <li slot="item">Базидиомицеты</li>
+        <li slot="item">Дейтеромицеты</li>
+      </tree-menu>
+
+      <tree-menu slot="item">
+        <span slot="title">Растения</span>
+        <li slot="item">Водоросли</li>
+        <li slot="item">Мохообразные</li>
+        <li slot="item">Сосудистые споровые</li>
+        <li slot="item">Семенные растения</li>
+      </tree-menu>
+
+      <tree-menu slot="item">
+        <span slot="title">Животные</span>
+        <li slot="item">Первичноротые</li>
+        <li slot="item">Spiralia</li>
+        <li slot="item">Panarthropoda</li>
+        <li slot="item">Вторичноротые</li>
+      </tree-menu>
+    </tree-menu>
+  </body>
+</html> 

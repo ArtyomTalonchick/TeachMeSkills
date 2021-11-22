@@ -6,4 +6,8 @@ import "./styles/style.scss";
 // const bob = new User("Bob");
 // bob.sayHello();
 
-console.log(sum(10)(2));
+console.log(process.env.BASE_API_URL);
+console.log(VERSION);
+
+
+// console.log(sum(10)(5));

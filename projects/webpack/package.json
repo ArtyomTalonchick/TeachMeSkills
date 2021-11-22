@@ -4,15 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "start": "webpack-dev-server"
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development",
+    "start:prod": "webpack-dev-server --mode production"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.16.0",
+    "@babel/plugin-proposal-class-properties": "^7.16.0",
+    "@babel/plugin-transform-arrow-functions": "^7.16.0",
+    "@babel/plugin-transform-classes": "^7.16.0",
     "babel-loader": "^8.2.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^10.0.0",
     "css-loader": "^6.5.1",
+    "dotenv-webpack": "^7.0.3",
     "html-webpack-plugin": "^5.5.0",
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0",
