@@ -1,0 +1,1 @@
+import{Router}from"./router/Router.js";const router=new Router;router.setRoutes([{hash:"home",html:"../pages/home.html",isDefault:!0},{hash:"about",html:"../pages/about.html"}]),router.init();

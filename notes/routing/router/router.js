@@ -1,7 +1,7 @@
 export class Router {
     constructor(routes) {
         this.routes = routes;
-        this.rootElem = document.getElementById("app");
+        this.rootElem = document.getElementById("app");ext
 
         this.init();
     }
