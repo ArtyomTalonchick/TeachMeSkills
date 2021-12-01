@@ -1,0 +1,19 @@
+header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    color: white;
+    z-index: 999;
+
+    .header__link {
+        cursor: pointer;
+        color: white;
+    
+
+        &:hover {
+            color: #aaaaaa
+        }
+    }
+}
