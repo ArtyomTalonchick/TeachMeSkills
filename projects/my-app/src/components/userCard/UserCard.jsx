@@ -2,8 +2,9 @@ import React from "react";
 
 import "./UserCard.scss";
 
-function UserCard({user, color}) {
-    const {name, age, email} = user;
+function UserCard({ user, color }) {   
+    const { name, age, email } = user;
+
     return (
         <div className="user-card" style={{ "background": color }}>
             <p className="name">
@@ -20,6 +21,12 @@ function UserCard({user, color}) {
 }
 
 // class UserCard2 extends React.Component {
+//     constructor(props) {
+//         super(props);
+
+//         console.log();
+//     }
+
 //     render() {
 //         console.log(this.props);
 //         const {name, age, email} = this.props.user;

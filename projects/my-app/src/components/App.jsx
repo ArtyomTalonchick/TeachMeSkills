@@ -3,6 +3,7 @@ import Menu from "./menu/Menu";
 import Users from "./users/Users";
 
 import "./App.scss";
+import { Clicker } from "./clicker/Clicker";
 
 function App() {
 
@@ -11,14 +12,15 @@ function App() {
   return (
     <div className="app">
 
-      <header>
-        <Header/>
-      </header>
+      
+      <Header/>
 
       <div className="app_page">
         <Menu/>
 
-        <main>
+        <main className="app__main">
+          <Clicker/>
+
           {isUserPage
             ?
             <Users/>
