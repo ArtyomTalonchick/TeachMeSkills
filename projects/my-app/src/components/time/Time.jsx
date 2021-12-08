@@ -10,15 +10,12 @@ export class Time extends React.Component {
     }
 
     componentDidMount() {
-        // console.log("componentDidMount");
         this.intervalId = setInterval(() => {
-            // console.log("Tick");
             this.setState({ now: this.getTime() });
         }, 1000);
     }
 
     componentWillUnmount() {
-        // console.log("componentWillUnmount");
         clearInterval(this.intervalId);
     }
 

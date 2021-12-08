@@ -1,9 +1,9 @@
 import Header from "./header/Header";
 import Menu from "./menu/Menu";
-import Users from "./users/Users";
+// import { Clicker } from "./clicker/Clicker";
+import { UsersPage } from "./usersPage/UsersPage";
 
 import "./App.scss";
-import { Clicker } from "./clicker/Clicker";
 
 function App() {
 
@@ -19,11 +19,11 @@ function App() {
         <Menu/>
 
         <main className="app__main">
-          <Clicker/>
+          {/* <Clicker/> */}
 
           {isUserPage
             ?
-            <Users/>
+            <UsersPage/>
             :
             <div>Empty Page</div>
           }
