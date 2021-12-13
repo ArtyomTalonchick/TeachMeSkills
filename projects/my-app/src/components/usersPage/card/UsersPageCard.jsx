@@ -1,40 +1,21 @@
-import React from "react";
-import { Modal } from "../../modal/Modal"
+import React, { useState } from "react";
 import { UsersPageModal } from "../modal/UsersPageModal";
 
 import "./UsersPageCard.scss";
 
-export class UsersPageCard extends React.Component {
-    constructor(props) {
-        super(props);
+export function UsersPageCard ({ user }) {
+    const [showModal, setShowModal] = useState(false);
 
-        this.state = {
-            showModal: false,
-        }
-    }
+    return (
+        <>
+            <div className="users-page-card" onClick={() => setShowModal(true)}>
+                <img className="avatar" src={user.avatar_url} alt="Avatar"/>
+                <span className="name">
+                    {user.login}
+                </span>
+            </div>
 
-    handleClick = (e) => {
-        this.setState({ showModal: true });
-    }
-
-    handleCloseModal = (e) => {
-        this.setState({ showModal: false });
-    }
-
-    render() {
-        const user = this.props.user;
-
-        return (
-            <>
-                <div className="users-page-card" onClick={this.handleClick}>
-                    <img className="avatar" src={user.avatar_url} alt="Avatar"/>
-                    <span className="name">
-                        {user.login}
-                    </span>
-                </div>
-
-                {this.state.showModal &&  <UsersPageModal user={user} onClose={this.handleCloseModal}/>}
-            </>
-        )
-    }
+            {showModal && <UsersPageModal user={user} onClose={() => setShowModal(false)}/>}
+        </>
+    );
 }

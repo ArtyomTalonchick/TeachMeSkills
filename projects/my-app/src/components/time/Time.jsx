@@ -1,31 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-export class Time extends React.Component {
-    constructor(props) {
-        super(props);
+const getTime = () => new Date().toTimeString().substring(0, 8);
 
-        this.state = {
-            now: this.getTime(),
-        };
-    }
+export function Time () {
+    const [now, setNow] = useState(getTime());
 
-    componentDidMount() {
-        this.intervalId = setInterval(() => {
-            this.setState({ now: this.getTime() });
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            console.log("tick");
+            setNow(getTime());
         }, 1000);
-    }
 
-    componentWillUnmount() {
-        clearInterval(this.intervalId);
-    }
+        return () => clearInterval(intervalId)
+    }, []);
 
-    getTime = () => new Date().toTimeString().substring(0, 8);
-
-    render() {
-        return (
-            <>
-                <span>{this.state.now}</span>
-            </>
-        )
-    }
+    return (
+        <span>{now}</span>
+    )
 }
