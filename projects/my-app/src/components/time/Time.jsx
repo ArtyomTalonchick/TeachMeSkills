@@ -1,20 +1,44 @@
 import React, { useEffect, useState } from "react";
+import { getTime } from "../../helpers/timeHelper";
+import { withTtranslator } from "../../hoc/withTranslator";
 
-const getTime = () => new Date().toTimeString().substring(0, 8);
+import { ReactComponent as TimeIcon } from "../../icons/time.svg";
+import "./Time.scss";
 
-export function Time () {
+const SHOW_TIME = "showTime";
+
+function _Time({ translate }) {
     const [now, setNow] = useState(getTime());
+    const [show, setShow] = useState(JSON.parse(localStorage.getItem(SHOW_TIME)));
 
     useEffect(() => {
-        const intervalId = setInterval(() => {
-            console.log("tick");
-            setNow(getTime());
-        }, 1000);
+        const intervalId = setInterval(() => setNow(getTime()), 10000);
 
-        return () => clearInterval(intervalId)
+        return () => clearInterval(intervalId);
     }, []);
 
+    
+    useEffect(() => {
+        const intervalId2 = setInterval(() => setNow(getTime()), 3432423000);
+
+        return () => clearInterval(intervalId2);
+    }, []);
+
+    useEffect(() => {
+        document.title = `Time - ${now}`;
+    }, [now]);
+
+    const handleToggleTime = () => {
+        setShow(!show);
+        localStorage.setItem(SHOW_TIME, !show);
+    }
+
     return (
-        <span>{now}</span>
+        <div className="time-container">
+            {show && <span>{now}</span>}
+            <TimeIcon onClick={handleToggleTime} title={translate("time.toggle.tooltip")}/>
+        </div>
     )
 }
+
+export const Time = withTtranslator(_Time);

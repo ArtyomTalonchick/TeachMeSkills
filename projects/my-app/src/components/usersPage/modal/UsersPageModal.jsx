@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getUser } from "../../api/usersApi";
+import { getUser } from "../../../api/usersApi";
 import { Modal } from "../../modal/Modal"
 
 import "./UsersPageModal.scss";

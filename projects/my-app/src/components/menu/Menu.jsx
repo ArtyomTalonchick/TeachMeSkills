@@ -1,44 +1,46 @@
-
+import { useEffect } from "react";
+import { withTtranslator } from "../../hoc/withTranslator";
 import "./Menu.scss";
 
 const links = [
     {
-        text: "Сообщения",
+        textId: "menu.links.messages",
         url: "/",
     },
     {
-        text: "Друзья",
+        textId: "menu.links.friends",
         url: "/",
     },
     {
-        text: "Новости",
+        textId: "menu.links.news",
         url: "/",
     },
     {
-        text: "Сообщества",
+        textId: "menu.links.groups",
         url: "/",
     },
     {
-        text: "Видео",
+        textId: "menu.links.video",
         url: "/",
     },
     {
-        text: "Фото",
+        textId: "menu.links.photo",
         url: "/",
     },
     {
-        text: "Игры",
+        textId: "menu.links.games",
         url: "/",
     },
 ];
 
-function Menu() {
+function Menu({ translate }) {
+
     return (
         <div className="menu">
             <ul>
                 {links.map((link, index) => (
                     <li key={index}>
-                        <a href={link.url}>{link.text}</a>
+                        <a href={link.url}>{translate(link.textId)}</a>
                     </li>
                 ))}
             </ul>
@@ -46,4 +48,4 @@ function Menu() {
     )    
 }
 
-export default Menu;
+export default withTtranslator(Menu);

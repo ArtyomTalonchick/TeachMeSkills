@@ -1,4 +1,5 @@
 import React from "react";
+import { withTtranslator } from "../../hoc/withTranslator";
 import { Time } from "../time/Time";
 import "./Header.scss";
 
@@ -12,22 +13,31 @@ class Header extends React.Component {
     }
 
     componentDidMount() {
-        this.timeoutId = setTimeout(() => {
-            this.setState({showTime: false});
-        }, 5000);
+        // this.timeoutId = setTimeout(() => {
+        //     this.setState({showTime: false});
+        // }, 5000);
     }
 
     componentWillUnmount() {
-        clearTimeout(this.timeoutId);
+        // clearTimeout(this.timeoutId);
     }
 
     render() {
         return (
-            <header>
-                <a href="/home" className="header__link">Home</a>
-                <a href="/about" className="header__link">About</a>
+            <header className="header">
+            <a href="/home" className="link">{this.props.translate("header.links.home")}</a>
+                <a href="/about" className="link">{this.props.translate("header.links.about")}</a>
+
+                <div className="languages">
+                    <button onClick={() => this.props.setLanguage("ru")}>
+                        RU
+                    </button>
+                    <button onClick={() => this.props.setLanguage("en")}>
+                        EN
+                    </button>
+                </div>
     
-                <div className="header__time">
+                <div className="time">
                     {this.state.showTime && <Time/>}
                 </div>
             </header>
@@ -35,4 +45,4 @@ class Header extends React.Component {
     }
 }
 
-export default Header;
+export default withTtranslator(Header);

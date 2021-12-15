@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { withTtranslator } from "../../../hoc/withTranslator";
 import { UsersPageModal } from "../modal/UsersPageModal";
 
 import "./UsersPageCard.scss";
 
-export function UsersPageCard ({ user }) {
+function Card ({ user }) {
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -19,3 +20,5 @@ export function UsersPageCard ({ user }) {
         </>
     );
 }
+
+export const UsersPageCard = withTtranslator(Card);

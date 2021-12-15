@@ -1,4 +1,4 @@
-header {
+.header {
     position: relative;
     padding: 20px;
     display: flex;
@@ -8,7 +8,7 @@ header {
     color: white;
     z-index: 999;
 
-    .header__link {
+    .link {
         cursor: pointer;
         color: white;
     
@@ -18,7 +18,11 @@ header {
         }
     }
 
-    .header__time {
+    button {
+        cursor: pointer;
+    }
+
+    .time {
         position: absolute;
         right: 20px;
         top: 50%;

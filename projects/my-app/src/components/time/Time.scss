@@ -1,0 +1,11 @@
+.time-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    svg {
+        margin-left: 8px;
+        cursor: pointer;
+        fill: white;
+    }
+}
