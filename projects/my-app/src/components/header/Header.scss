@@ -1,11 +1,11 @@
-.header {
+header.header {
     position: relative;
     padding: 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: black;
-    color: white;
+    background-color: var(--background-header);
+    color: white;  //TODO replece with var
     z-index: 999;
 
     .link {
@@ -19,6 +19,12 @@
     }
 
     button {
+        cursor: pointer;
+    }
+
+    .theme-icon {
+        width: 24px;
+        fill: white;
         cursor: pointer;
     }
 

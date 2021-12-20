@@ -1,24 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Card, CardContent } from '@mui/material';
+
 import { withTtranslator } from "../../../hoc/withTranslator";
 import { UsersPageModal } from "../modal/UsersPageModal";
 
 import "./UsersPageCard.scss";
 
-function Card ({ user }) {
+function UsersPageCard ({ user }) {
     const [showModal, setShowModal] = useState(false);
 
     return (
         <>
-            <div className="users-page-card" onClick={() => setShowModal(true)}>
-                <img className="avatar" src={user.avatar_url} alt="Avatar"/>
-                <span className="name">
-                    {user.login}
-                </span>
-            </div>
+            <Card className="users-page-card" onClick={() => setShowModal(true)}>
+                <CardContent>
+                    <img className="avatar" src={user.avatar_url} alt="Avatar"/>
+                    <span className="name text">
+                        {user.login}
+                    </span>
+                </CardContent>
+            </Card>
 
             {showModal && <UsersPageModal user={user} onClose={() => setShowModal(false)}/>}
         </>
     );
 }
 
-export const UsersPageCard = withTtranslator(Card);
+export default withTtranslator(UsersPageCard);

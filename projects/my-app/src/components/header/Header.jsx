@@ -1,6 +1,11 @@
 import React from "react";
-import { withTtranslator } from "../../hoc/withTranslator";
+import { ButtonGroup, Button } from '@mui/material';
+
 import { Time } from "../time/Time";
+import { withTtranslator } from "../../hoc/withTranslator";
+import { withTheme } from "../../hoc/withTheme";
+
+import { ReactComponent as ThemeIcon } from "../../icons/theme.svg";
 import "./Header.scss";
 
 class Header extends React.Component {
@@ -28,15 +33,20 @@ class Header extends React.Component {
             <a href="/home" className="link">{this.props.translate("header.links.home")}</a>
                 <a href="/about" className="link">{this.props.translate("header.links.about")}</a>
 
-                <div className="languages">
-                    <button onClick={() => this.props.setLanguage("ru")}>
+                <ButtonGroup size="small" variant="contained" aria-label="outlined primary button group">
+                    <Button onClick={() => this.props.setLanguage("ru")}>
                         RU
-                    </button>
-                    <button onClick={() => this.props.setLanguage("en")}>
+                    </Button>
+                    <Button onClick={() => this.props.setLanguage("en")}>
                         EN
-                    </button>
-                </div>
-    
+                    </Button>
+                </ButtonGroup>
+
+                <ThemeIcon 
+                    className="theme-icon"
+                    onClick={() => this.props.toggleTheme()}
+                />
+
                 <div className="time">
                     {this.state.showTime && <Time/>}
                 </div>
@@ -45,4 +55,4 @@ class Header extends React.Component {
     }
 }
 
-export default withTtranslator(Header);
+export default withTheme(withTtranslator(Header));

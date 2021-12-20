@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+
+import { Loader } from "../loader/Loader";
+import UsersPageCard from "./card/UsersPageCard";
 import { getUsers } from "../../api/usersApi";
-import { UsersPageCard } from "./card/UsersPageCard";
 
 import "./UsersPage.scss";
 
@@ -26,8 +28,12 @@ export function UsersPage () {
 
     return (
         <div className="users-page">
-            {isLoading && "Loading..."}
-            {isError && "isError..."}
+            {isLoading && <Loader/>}
+            {isError &&
+                <span className="text">
+                    isError...
+                </span>
+            }
             {!isLoading && !isError &&
                 users.map(user => 
                     <UsersPageCard key={user.id} user={user}/>

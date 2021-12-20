@@ -1,14 +1,7 @@
-.users-page-card {
-    width: 120px;
-    padding: 16px;
+div.users-page-card {
     margin: 16px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    background-color: #eeeeee;
-    border-radius: 10px;
+    background-color: var(--background-card);
 
     cursor: pointer;
 

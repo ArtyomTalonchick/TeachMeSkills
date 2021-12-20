@@ -1,0 +1,20 @@
+
+[data-theme="light"] {
+    --background: #FAFAFA;
+    --background-card: #FFFFFF;
+    --background-header: #212121;
+    --text: #212121;
+    // --text-dark: #212121;
+    // --text-light: #212121;
+}
+
+[data-theme="dark"] {
+    --background: #212121;
+    --background-card: #424242;
+    --background-header: #263238;
+    --text: #FAFAFA;
+}
+
+[data-theme] {
+    --danger: red;
+}
