@@ -1,11 +1,7 @@
 export const translatesEn = {
-    "menu.links.messages": "Messages",
-    "menu.links.friends": "Friends",
-    "menu.links.news": "News",
-    "menu.links.groups": "Groups",
-    "menu.links.video": "Video",
-    "menu.links.photo": "Photo",
-    "menu.links.games": "Games",
+    "menu.links.clicker": "Clicker",
+    "menu.links.home": "Home",
+    "menu.links.users": "Users",
 
     "header.links.home": "Home",
     "header.links.about": "About",

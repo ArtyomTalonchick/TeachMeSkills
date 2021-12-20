@@ -1,35 +1,19 @@
-import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { withTtranslator } from "../../hoc/withTranslator";
 import "./Menu.scss";
 
 const links = [
     {
-        textId: "menu.links.messages",
+        textId: "menu.links.clicker",
+        url: "/clicker",
+    },
+    {
+        textId: "menu.links.home",
         url: "/",
     },
     {
-        textId: "menu.links.friends",
-        url: "/",
-    },
-    {
-        textId: "menu.links.news",
-        url: "/",
-    },
-    {
-        textId: "menu.links.groups",
-        url: "/",
-    },
-    {
-        textId: "menu.links.video",
-        url: "/",
-    },
-    {
-        textId: "menu.links.photo",
-        url: "/",
-    },
-    {
-        textId: "menu.links.games",
-        url: "/",
+        textId: "menu.links.users",
+        url: "/users",
     },
 ];
 
@@ -40,7 +24,7 @@ function Menu({ translate }) {
             <ul>
                 {links.map((link, index) => (
                     <li key={index}>
-                        <a href={link.url}>{translate(link.textId)}</a>
+                        <Link to={link.url}>{translate(link.textId)}</Link>
                     </li>
                 ))}
             </ul>
