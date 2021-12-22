@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-import { Loader } from "../loader/Loader";
+import Loader from "../loader/Loader";
 import UsersPageCard from "./card/UsersPageCard";
+import { withAuth } from "../../hoc/withAuth";
 import { getUsers } from "../../api/usersApi";
 
 import "./UsersPage.scss";
 
-export function UsersPage () {
+const UsersPage = () => {
     const [users, setUsers] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
@@ -42,3 +43,5 @@ export function UsersPage () {
         </div>
     )
 }
+
+export default withAuth(UsersPage);

@@ -8,4 +8,10 @@
     width: 300px;
     display: flex;
     align-items: center;
+
+    .menu-link {     
+        &.active {
+            font-weight: bold;
+        }
+    }
 }

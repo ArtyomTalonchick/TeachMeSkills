@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { withTtranslator } from "../../hoc/withTranslator";
 import "./Menu.scss";
 
@@ -24,7 +24,7 @@ function Menu({ translate }) {
             <ul>
                 {links.map((link, index) => (
                     <li key={index}>
-                        <Link to={link.url}>{translate(link.textId)}</Link>
+                        <NavLink to={link.url} className="menu-link" activeclassname="active">{translate(link.textId)}</NavLink>
                     </li>
                 ))}
             </ul>

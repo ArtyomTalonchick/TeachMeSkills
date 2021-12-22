@@ -1,6 +1,6 @@
 import { Grid, CircularProgress } from '@mui/material';
 
-export const Loader = () => {
+const Loader = () => {
 
     return (
         <Grid
@@ -13,3 +13,5 @@ export const Loader = () => {
         </Grid>
     )
 }
+
+export default Loader;

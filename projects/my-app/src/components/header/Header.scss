@@ -2,11 +2,15 @@ header.header {
     position: relative;
     padding: 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
     background-color: var(--background-header);
     color: white;  //TODO replece with var
     z-index: 999;
+
+    .header-item {
+        margin: 0 16px;
+    }
 
     .link {
         cursor: pointer;
