@@ -132,6 +132,3 @@ describe("pow", function() {
 [https://learn.javascript.ru/testing-mocha#behavior-driven-development-bdd](https://learn.javascript.ru/testing-mocha#behavior-driven-development-bdd)
 
 [Chai Assertion Library](https://www.chaijs.com/api/assert/)
-
-[Name](url)
-[Name](url)
