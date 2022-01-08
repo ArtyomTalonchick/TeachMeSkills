@@ -1,45 +1,42 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { Card, CardContent, CardHeader, TextField, Button } from "@mui/material";
 
 import Loader from "../loader/Loader";
-import authApi from "../../api/authApi";
+import { LOADING, FAILED } from "../../constants/actionStatuses";
 
 import "./LoginPage.scss";
-import { withMe } from "../../hoc/withMe";
+import { login as loginAction } from "../../store/auth/actions";
 
-const LoginPage = ({ me, setMe }) => {
+const LoginPage = () => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
+    const [changed, setChanged] = useState(false);
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const isLogged = useSelector(state => !!state.auth.account);
+    const loginStatus = useSelector(state => state.auth.loginStatus);
+
+    const error = loginStatus === FAILED && !changed;
+    const loading = loginStatus === LOADING;
 
     useEffect(() => {
-        if (me) {
-            navigate("/")
+        if (isLogged) {
+            navigate("/");
         }
-    }, [me]);
+    }, [navigate, isLogged]);
 
 
     const handleInput = (setFunction) => (e) => {
-        setError(false);
+        setChanged(true);
         setFunction(e.currentTarget.value);
     }    
 
     const handleSubmit = () => {
-        setLoading(true);
-        authApi.login(login, password)
-            .then((response) => {
-                setMe(response.data.user);
-            })
-            .catch((error) => {
-                setError(true);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
+        setChanged(false);
+        dispatch(loginAction(login, password));
     }
     
 
@@ -50,11 +47,11 @@ const LoginPage = ({ me, setMe }) => {
                 <CardContent>
                     
                     
-                    {/* {error && <span>{error}</span>} */}
                     <TextField
                         value={login}
                         onChange={handleInput(setLogin)}
                         error={!!error}
+                        disabled={loading}
 
                         className="text-field"
                         fullWidth
@@ -66,6 +63,7 @@ const LoginPage = ({ me, setMe }) => {
                         value={password}
                         onChange={handleInput(setPassword)}
                         error={!!error}
+                        disabled={loading}
 
                         className="text-field"
                         fullWidth
@@ -77,7 +75,7 @@ const LoginPage = ({ me, setMe }) => {
                     
                     <Button 
                         onClick={handleSubmit}
-                        endIcon={ loading ? <Loader /> : undefined}
+                        endIcon={loading ? <Loader /> : undefined}
                         disabled={loading || !!error}
                         >
                         Login
@@ -88,4 +86,4 @@ const LoginPage = ({ me, setMe }) => {
     )
 }
 
-export default withMe(LoginPage);
+export default LoginPage;
