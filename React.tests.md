@@ -89,3 +89,9 @@ npm i -D @testing-library/user-event
 ```
 jest.mock('./SomeComponent', () => () => 'SomeComponent');
 ```
+
+# Snapshot Testing
+[Snapshot Testing](https://jestjs.io/docs/snapshot-testing)
+
+# Ссылки
+[React Testing Tutorial (Jest + React Testing Library)](https://www.youtube.com/watch?v=ML5egqL3YFE)
