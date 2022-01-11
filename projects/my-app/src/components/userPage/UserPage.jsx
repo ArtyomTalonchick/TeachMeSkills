@@ -19,7 +19,7 @@ const UserPage = (props) => {
 
     return (
         <div>
-            User Page
+            {user.login}
         </div>
     )
 }
