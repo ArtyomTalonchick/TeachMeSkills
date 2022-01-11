@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import Header from "./header/Header";
 import Menu from "./menu/Menu";
 import LoginPage from './loginPage/LoginPage';
-import { Clicker } from "./clicker/Clicker";
+import Clicker from "./clicker/Clicker";
 import UsersPage from "./usersPage/UsersPage";
 import UserPage from "./userPage/UserPage";
 import { withTheme } from '../hoc/withTheme';

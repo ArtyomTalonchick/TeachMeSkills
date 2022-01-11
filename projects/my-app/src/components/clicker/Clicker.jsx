@@ -1,30 +1,29 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { shiftValue } from "../../store/clicker/actions";
 
 import "./Clicker.scss";
 
-export class Clicker extends React.Component {
-    constructor(props) {
-        super(props);
+const Clicker = () => {
 
-        this.state = {
-            count: 0,
-        }
-    }
+    const value = useSelector(state => state.clicker.value)
+    const dispatch = useDispatch();
 
-    handleClick = (arg, e) => {
+    const handleClick = (arg, e) => {
         e.preventDefault();
-        this.setState(prevState => ({ count: prevState.count + arg }));
+        dispatch(shiftValue(arg));
     }
 
-    render() {
-        return (
-            <div className="clicker">
-                <span className="clicker__label">{this.state.count}</span>
-                <div>
-                    <button onClick={(e) => this.handleClick(+1, e)}>+</button>
-                    <button onClick={(e) => this.handleClick(-1, e)}>-</button>
-                </div>
+    return (
+        <div className="clicker">
+            <span className="clicker__label">{value}</span>
+            <div>
+                <button onClick={(e) => handleClick(+1, e)}>+</button>
+                <button onClick={(e) => handleClick(-1, e)}>-</button>
             </div>
-        )
-    }
+        </div>
+    )
 }
+
+
+export default Clicker;
