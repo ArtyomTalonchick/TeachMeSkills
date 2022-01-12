@@ -1,8 +1,11 @@
 import { render, screen, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import axios from "axios";
+import { Provider } from "react-redux";
 
 import UsersPage from "./UsersPage";
+
+import store from "../../store/store";
 
 jest.mock("axios");
 jest.mock("../loader/Loader", () => () => <span>Loading</span>);
@@ -12,6 +15,8 @@ jest.mock("../../hoc/withAuth", () => {
         withAuth: (component) => component
     }
 });
+
+const renderwithRedux = (component) => ({...render(<Provider store={store}>{component}</Provider>)});
 
 afterEach(() => {
     cleanup();
@@ -35,7 +40,7 @@ describe("Users Page", () => {
         test("Success response", async () => {
             axios.get.mockResolvedValueOnce(response);
 
-            const { findAllByTestId } = render(<UsersPage/>);
+            const { findAllByTestId } = renderwithRedux(<UsersPage/>);
 
             const cards = await findAllByTestId("user-card");
             expect(cards).toHaveLength(2);
@@ -46,7 +51,7 @@ describe("Users Page", () => {
         test("Failed response", async () => {
             axios.get.mockRejectedValueOnce(new Error());
 
-            const { findByText } = render(<UsersPage/>);
+            const { findByText } = renderwithRedux(<UsersPage/>);
             expect(await findByText(/error/i)).toBeInTheDocument();
         })
     })
@@ -55,7 +60,7 @@ describe("Users Page", () => {
         test("Success response", async () => {
             axios.get.mockResolvedValueOnce(response);
 
-            const { getByText, findByText } = render(<UsersPage/>);
+            const { getByText, findByText } = renderwithRedux(<UsersPage/>);
             expect(getByText(/Loading/i)).toBeInTheDocument();
             expect(await findByText(/Loading/i)).not.toBeInTheDocument();
         })
@@ -63,7 +68,7 @@ describe("Users Page", () => {
         test("Failed response", async () => {
             axios.get.mockRejectedValueOnce(new Error());
 
-            const { getByText, findByText } = render(<UsersPage/>);
+            const { getByText, findByText } = renderwithRedux(<UsersPage/>);
             expect(getByText(/Loading/i)).toBeInTheDocument();
             expect(await findByText(/Loading/i)).not.toBeInTheDocument();
         })
