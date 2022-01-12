@@ -11,7 +11,7 @@ function UsersPageCard ({ user }) {
 
     return (
         <>
-            <Card className="users-page-card" onClick={() => setShowModal(true)}>
+            <Card data-testid="user-card" className="users-page-card" onClick={() => setShowModal(true)}>
                 <CardContent>
                     <img className="avatar" src={user.avatar_url} alt="Avatar"/>
                     <span className="name text">

@@ -1,5 +1,29 @@
-import Clicker1 from "./Clicker1";
-import Clicker2 from "./Clicker2";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { shiftValue } from "../../store/clicker/actions";
 
-// export default Clicker1;
-export default Clicker2;
+import "./Clicker.scss";
+
+const Clicker = () => {
+
+    const value = useSelector(state => state.clicker.value)
+    const dispatch = useDispatch();
+
+    const handleClick = (arg, e) => {
+        e.preventDefault();
+        dispatch(shiftValue(arg));
+    }
+
+    return (
+        <div className="clicker">
+            <span className="clicker__label">{value}</span>
+            <div>
+                <button onClick={(e) => handleClick(+1, e)}>+</button>
+                <button onClick={(e) => handleClick(-1, e)}>-</button>
+            </div>
+        </div>
+    )
+}
+
+
+export default Clicker;

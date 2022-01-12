@@ -16,10 +16,9 @@ function* fetchUsersWorker(action) {
         yield put(setFetchUsersStatus(LOADING));
         const response = yield call(getUsers);
         yield put(setUsers(response.data));
+        yield put(setFetchUsersStatus(SUCCESS));
     } catch (e) {
         yield put(setFetchUsersStatus(FAILED));
-    } finally {
-        yield put(setFetchUsersStatus(SUCCESS));
     }
 }
 

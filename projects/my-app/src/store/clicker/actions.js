@@ -10,4 +10,3 @@ export const shiftValue = (value) => ({
     type: SHIFT_VALUE,
     payload: value,
 });
-

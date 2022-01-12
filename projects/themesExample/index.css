@@ -1,0 +1,25 @@
+body[data-theme="dark"] {
+
+    --btn-color: #424242;
+    --text-color: #FAFAFA;
+
+    --back-url: url("https://wallpaperaccess.com/full/862202.png");
+}
+
+body[data-theme="light"] {
+
+    --btn-color: #F5F5F5;
+    --text-color: #424242;
+
+    --back-url: url("https://media.istockphoto.com/photos/gray-abstract-background-picture-id1148888540?k=20&m=1148888540&s=170667a&w=0&h=-_Xv6ZqMGE564t2jKnZEAjmbO7gqKzlpujjVtFunvIg=");
+}
+
+body {
+    background: var(--back-url);
+    background-size: cover;
+}
+
+button {
+    background-color: var(--btn-color);
+    color: var(--text-color);
+}

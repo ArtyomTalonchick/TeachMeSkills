@@ -20,7 +20,7 @@ export const usersReducer = (state = defaultState, action) => {
         }
         case SET_FETCH_USERS_STATUS: {
             const clone = cloneDeep(state);
-            clone.loginStatus = action.payload;
+            clone.fetchUsersStatus = action.payload;
             return clone;
         }
         default: return state;
