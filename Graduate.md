@@ -80,5 +80,5 @@
 
 
 Примечания:
-- Выбрать `react-context` или `react-redux` (вместе не юзать)
+- Выбрать `react-context` или `react-redux` (для хранения данных лучше юзать только `redux`, для специфичных задач (темы, языки) лучше юзать `context`)
 - Продвинутые `localStorage` и `localStorage` - правильное использование `localStorage` и `localStorage`, большой объем сохраняемых данных 

@@ -27,6 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test-coverage": "react-scripts test --coverage",
+    "test-update": "react-scripts test --updateSnapshot",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
