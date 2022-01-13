@@ -1,3 +1,4 @@
+import "./mocks/browser";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
@@ -6,9 +7,9 @@ import './index.css';
 import App from './components/App';
 import store from './store/store';
 
-if (process.env.NODE_ENV === "development") {
-  require("./mocks/browser");
-}
+// if (process.env.NODE_ENV === "development") {
+//   require("./mocks/browser");
+// }
 
 ReactDOM.render(
   <React.StrictMode>

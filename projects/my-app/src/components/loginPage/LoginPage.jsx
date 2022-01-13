@@ -1,45 +1,42 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { Card, CardContent, CardHeader, TextField, Button } from "@mui/material";
 
 import Loader from "../loader/Loader";
-import authApi from "../../api/authApi";
+import { login as authLogin, setLoginStatus } from "../../store/auth/actions";
+import { LOADING, FAILED } from "../../constants/statuses";
 
 import "./LoginPage.scss";
-import { withMe } from "../../hoc/withMe";
 
-const LoginPage = ({ me, setMe }) => {
+const LoginPage = () => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
+
+    const account = useSelector(state => state.auth.account);
+    const loginStatus = useSelector(state => state.auth.loginStatus);
+
+    const loading = loginStatus === LOADING;
+    const error = loginStatus === FAILED;
+
+    const dispatch = useDispatch();
 
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (me) {
-            navigate("/")
+        if (!!account) {
+            navigate("/");
         }
-    }, [me]);
+    }, [account]);
 
 
     const handleInput = (setFunction) => (e) => {
-        setError(false);
+        dispatch(setLoginStatus(null));
         setFunction(e.currentTarget.value);
     }    
 
     const handleSubmit = () => {
-        setLoading(true);
-        authApi.login(login, password)
-            .then((response) => {
-                setMe(response.data.user);
-            })
-            .catch((error) => {
-                setError(true);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
+        dispatch(authLogin(login, password))
     }
     
 
@@ -88,4 +85,4 @@ const LoginPage = ({ me, setMe }) => {
     )
 }
 
-export default withMe(LoginPage);
+export default LoginPage;

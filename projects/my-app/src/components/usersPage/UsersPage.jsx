@@ -1,30 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import Loader from "../loader/Loader";
 import UsersPageCard from "./card/UsersPageCard";
 import { withAuth } from "../../hoc/withAuth";
-import { getUsers } from "../../api/usersApi";
+import { fetchUsers } from "../../store/users/actions";
+import { FAILED, LOADING } from "../../constants/statuses";
 
 import "./UsersPage.scss";
 
 const UsersPage = () => {
-    const [users, setUsers] = useState({});
-    const [isLoading, setIsLoading] = useState(true);
-    const [isError, setIsError] = useState(false);
+    const dispatch = useDispatch();
+
+    const users = useSelector(state => state.users.users);
+    const fetchUsersStatus = useSelector(state => state.users.fetchUsersStatus);
+
+    const isLoading = fetchUsersStatus === LOADING;
+    const isError = fetchUsersStatus === FAILED;
 
     useEffect(() => {
-        async function fetchData () {
-            try {
-                const response = await getUsers();
-                setUsers(response.data);
-            } catch (e) {
-                setIsError(true);
-            } finally {
-                setIsLoading(false);
-            }
-        }
-
-        fetchData();
+        dispatch(fetchUsers());
+        dispatch(fetchUsers());
+        dispatch(fetchUsers());
     }, []);
 
     return (

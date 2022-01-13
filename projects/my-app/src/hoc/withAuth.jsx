@@ -1,15 +1,17 @@
 import { Navigate } from "react-router-dom";
-import { withMe } from "./withMe";
+import { useSelector } from "react-redux";
 
-export const withAuth = (Component) => withMe(({ me, setMe, ...props }) => {
+export const withAuth = (Component) => ({ ...props }) => {
 
-    if (me) {
+    const account = useSelector(state => state.auth.account);
+
+    if (!!account) {
         return (
-            <Component me={me} setMe={setMe} {...props}/>
+            <Component {...props}/>
         )
     } else {
         return (
             <Navigate replace to="/login"/>
         )
     }
-})
+}
