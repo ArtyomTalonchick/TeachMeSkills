@@ -20,8 +20,6 @@ const UsersPage = () => {
 
     useEffect(() => {
         dispatch(fetchUsers());
-        dispatch(fetchUsers());
-        dispatch(fetchUsers());
     }, []);
 
     return (
