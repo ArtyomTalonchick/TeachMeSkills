@@ -390,3 +390,5 @@ npx create-react-app my-app --template typescript
 ```
 npm i -D typescript
 ```
+
+[A type-safe approach to Redux stores in TypeScript](https://medium.com/@resir014/a-type-safe-approach-to-redux-stores-in-typescript-6474e012b81e)
