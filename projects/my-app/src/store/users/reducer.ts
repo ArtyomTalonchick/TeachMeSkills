@@ -9,7 +9,7 @@ const defaultState = {
     fetchUsersStatus: null,
 };
 
-export const usersReducer = (state = defaultState, action) => {
+export const usersReducer = (state = defaultState, action: any) => {
 
     switch (action?.type)
     {

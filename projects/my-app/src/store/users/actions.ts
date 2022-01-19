@@ -9,12 +9,12 @@ export const fetchUsers = () => ({
     type: FETCH_USERS
 });
 
-export const setFetchUsersStatus = (status) => ({
+export const setFetchUsersStatus = (status: string) => ({
     type: SET_FETCH_USERS_STATUS,
     payload: status,
 })
 
-export const setUsers = (data) => ({
+export const setUsers = (data: any) => ({
     type: SET_USERS,
     payload: data,
 });

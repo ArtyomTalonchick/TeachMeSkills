@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { getUser } from "../../../api/usersApi";
 import { Modal } from "../../modal/Modal"
+import { User } from "../../../types/User";
 
 import "./UsersPageModal.scss";
 
+type Props = {
+    user: User,
+    onClose: () => void,
+}
 
-export function UsersPageModal ({ user, onClose }) {
-    const [data, setData] = useState({});
+export function UsersPageModal ({ user, onClose }: Props) {
+    const [data, setData] = useState<User | null>();
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
 
@@ -40,11 +45,11 @@ export function UsersPageModal ({ user, onClose }) {
                 {!isLoading && !isError &&
                     <div className="info">
                         <p>
-                            Name: {data.name}
+                            Name: {data?.name}
                         </p>
-                        {data.location &&
+                        {data?.location &&
                             <p>
-                                Location: {data.location}
+                                Location: {data?.location}
                             </p>
                         }
                     </div>

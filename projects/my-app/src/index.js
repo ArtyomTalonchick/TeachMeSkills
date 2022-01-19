@@ -10,6 +10,8 @@ import store from './store/store';
 // if (process.env.NODE_ENV === "development") {
 //   require("./mocks/browser");
 // }
+// console.log(store.getState())
+// debugger
 
 ReactDOM.render(
   <React.StrictMode>

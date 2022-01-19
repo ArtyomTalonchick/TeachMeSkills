@@ -1,19 +1,20 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 
 import Loader from "../loader/Loader";
 import UsersPageCard from "./card/UsersPageCard";
 import { withAuth } from "../../hoc/withAuth";
 import { fetchUsers } from "../../store/users/actions";
 import { FAILED, LOADING } from "../../constants/statuses";
+import { User } from "../../types/User";
 
 import "./UsersPage.scss";
 
 const UsersPage = () => {
     const dispatch = useDispatch();
 
-    const users = useSelector(state => state.users.users);
-    const fetchUsersStatus = useSelector(state => state.users.fetchUsersStatus);
+    const users = useSelector((state: RootStateOrAny) => state.users.users);
+    const fetchUsersStatus = useSelector((state: RootStateOrAny) => state.users.fetchUsersStatus);
 
     const isLoading = fetchUsersStatus === LOADING;
     const isError = fetchUsersStatus === FAILED;
@@ -31,7 +32,7 @@ const UsersPage = () => {
                 </span>
             }
             {!isLoading && !isError &&
-                users.map(user => 
+                users.map((user: User) => 
                     <UsersPageCard key={user.id} user={user}/>
                 )                
             }
