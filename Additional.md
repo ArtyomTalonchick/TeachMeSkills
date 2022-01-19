@@ -20,6 +20,8 @@
 
 # PureComponent (1)
 
+# styles modules (1)
+
 [PureComponent](https://ru.reactjs.org/docs/react-api.html#reactpurecomponent) - чистый компонент
 
 # Portals (0)
