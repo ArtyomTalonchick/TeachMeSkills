@@ -378,3 +378,15 @@ const double = <T extends number>(n: T): number => {
     return n ** 2;
 }
 ```
+
+### React
+
+Создание нового проекта на `TypeScript`
+```
+npx create-react-app my-app --template typescript
+```
+
+Добавление `TypeScript` в существующий проект
+```
+npm i -D typescript
+```
