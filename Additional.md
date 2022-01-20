@@ -22,7 +22,9 @@
 
 [PureComponent](https://ru.reactjs.org/docs/react-api.html#reactpurecomponent) - чистый компонент
 
-# styles modules (1)
+# CSS Modules (1)
+
+[CSS Modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/) - позволяют использовать одно и то же имя класса CSS в разных файлах, не беспокоясь о конфликтах имен
 
 # Portals (0)
 
