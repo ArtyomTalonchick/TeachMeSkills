@@ -7,9 +7,6 @@ import { User } from "../../../types/User";
 
 import "./UsersPageCard.scss";
 
-import styles from "./UsersPageCard.module.scss";
-
-
 
 type Props = {
     user: User
@@ -22,7 +19,7 @@ function UsersPageCard ({ user }: Props) {
         <>
             <Card data-testid="user-card" className="users-page-card" onClick={() => setShowModal(true)}>
                 <CardContent>
-                    <img className={styles.avatar} src={user.avatar_url} alt="Avatar"/>
+                    <img className="avatar" src={user.avatar_url} alt="Avatar"/>
                     <span className="name text">
                         {user.login}
                     </span>
