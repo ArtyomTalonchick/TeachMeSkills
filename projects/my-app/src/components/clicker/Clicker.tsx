@@ -1,15 +1,15 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { MouseEvent } from "react";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { shiftValue } from "../../store/clicker/actions";
 
 import "./Clicker.scss";
 
 const Clicker = () => {
 
-    const value = useSelector(state => state.clicker.value)
+    const value = useSelector((state: RootStateOrAny) => state.clicker.value)
     const dispatch = useDispatch();
 
-    const handleClick = (arg, e) => {
+    const handleClick = (arg: number, e: MouseEvent) => {
         e.preventDefault();
         dispatch(shiftValue(arg));
     }

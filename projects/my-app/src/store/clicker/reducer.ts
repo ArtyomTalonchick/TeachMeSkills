@@ -8,7 +8,7 @@ const defaultState = {
     value: 0,
 };
 
-export const clickerReducer = (state = defaultState, action) => {
+export const clickerReducer = (state = defaultState, action: any) => {
 
     switch (action?.type)
     {

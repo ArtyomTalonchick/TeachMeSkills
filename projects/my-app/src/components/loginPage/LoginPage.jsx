@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Card, CardContent, CardHeader, TextField, Button } from "@mui/material";
@@ -10,6 +10,10 @@ import { LOADING, FAILED } from "../../constants/statuses";
 import "./LoginPage.scss";
 
 const LoginPage = () => {
+    const textInput = useRef(null);
+
+
+
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
 
@@ -22,6 +26,10 @@ const LoginPage = () => {
     const dispatch = useDispatch();
 
     const navigate = useNavigate()
+
+    useEffect(() => {
+        textInput.current.querySelector("input").focus();
+    }, []);
 
     useEffect(() => {
         if (!!account) {
@@ -49,6 +57,8 @@ const LoginPage = () => {
                     
                     {/* {error && <span>{error}</span>} */}
                     <TextField
+                        ref={textInput}
+
                         value={login}
                         onChange={handleInput(setLogin)}
                         error={!!error}
