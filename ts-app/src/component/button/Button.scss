@@ -1,0 +1,22 @@
+.button-theme {
+    margin: 24px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: .7;
+    }
+
+    &:hover {
+        opacity: .5;
+    }
+
+    &._red {
+        background-color: red;
+        color: white;
+    }
+
+    &._green {
+        background-color: green;
+        color: white;
+    }    
+}
