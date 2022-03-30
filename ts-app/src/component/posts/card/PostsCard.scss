@@ -1,0 +1,64 @@
+.post-card-container {
+    padding: 24px;
+    background-color: #FAFAFA;
+    border-radius: 8px;
+    max-width: 200px;
+    height: 400px;
+    
+    display: flex;
+    flex-direction: column;
+
+    .image {
+        max-width: 200px;
+        max-height: 200px;
+        margin-bottom: 24px;
+    }
+
+    .image-placeholder {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 24px;
+        border-radius: 8px;
+        background-color: #64B5F6;
+        position: relative;
+
+        div {
+            background: linear-gradient(to right, #64B5F6, #E3F2FD, #64B5F6);
+            position: absolute;
+            height: 1px;
+
+            &:first-child {
+                top: 40%;
+                left: 10%;
+                right: 20%;
+                
+            }
+
+            &:last-child {
+                top: 60%;
+                left: 20%;
+                right: 10%;       
+            }
+        }
+    }
+
+    .title {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+
+    .text {
+        font-size: 18px;
+        margin-bottom: 24px;
+        color: #616161;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .date {
+        font-size: 16px;
+        color: #81D4FA;
+    }
+
+
+}

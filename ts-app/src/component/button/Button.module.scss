@@ -1,4 +1,4 @@
-.button-theme {
+.buttonTheme {
     margin: 24px;
     cursor: pointer;
 
@@ -6,17 +6,17 @@
         opacity: .7;
     }
 
-    &:hover {
+    &:active {
         opacity: .5;
     }
 
-    &._red {
+    &.red {
         background-color: red;
         color: white;
     }
 
-    &._green {
+    &.green {
         background-color: green;
         color: white;
-    }    
+    }
 }

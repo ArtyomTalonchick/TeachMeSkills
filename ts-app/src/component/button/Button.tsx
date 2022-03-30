@@ -1,19 +1,30 @@
-import "./Button.scss";
+import React from "react";
+import styles from "./Button.module.scss";
+
 
 type PropsType = {
     color: string
     text?: string
-    handleClick: any
+    handleClick: (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-const Button = ({ 
-    color,
-    text="Click Me",
-    handleClick,
-    }: PropsType) => {
+const Button: React.FC<PropsType> = ({ 
+        color,
+        text="Click Me",
+        handleClick,
+    }) => {
+
+    const classNames = [styles.buttonTheme];
+    console.log(styles[color as string]);
+
+    if (color !== "red") {
+        classNames.push(styles[color]);
+    }
 
     return (
-        <button className={`button-theme _${color}`} onClick={handleClick}>
+        <button
+            className={classNames.join(" ")} onClick={(e) => handleClick(e)}
+        >
             {text}
         </button>
     )

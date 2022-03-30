@@ -1,12 +1,20 @@
+import React from 'react';
 import './App.css';
-import Button from './component/button/Button';
+// import Button from './component/button/Button';
+import Posts from './component/posts/Posts';
 
 
-function App() {
-  const handleClick = () => console.log("Green button clicked")
+const App: React.FC = () => {
+  // const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  //   console.log(e);
+  // }
+
   return (
     <div className="App">
-      <Button
+
+      <Posts/>
+
+      {/* <Button
         color="red"
         text="First button"
         handleClick={() => console.log("Red button clicked")}
@@ -15,7 +23,7 @@ function App() {
         color="green"
         text="Second button"
         handleClick={handleClick}
-      />
+      /> */}
     </div>
   );
 }
