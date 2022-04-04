@@ -1,21 +1,26 @@
 import React from 'react';
-import './App.css';
-import Clicker from './component/clicker/Clicker';
+// import Clicker from './component/clicker/Clicker';
 // import Button from './component/button/Button';
+// import Timer from './component/timer/Timer';
+import Header from './component/header/Header';
 import Posts from './component/posts/Posts';
-import Timer from './component/timer/Timer';
+
+import './App.scss';
 
 
 const App: React.FC = () => {
 
 
   return (
-    <div className="App">
+    <div className="app-container">
+      <Header/>
+      <div className="app-content">
+        {/* <Clicker/> */}
+        {/* <Timer/> */}
 
-      {/* <Clicker/> */}
-      {/* <Timer/> */}
+        <Posts/>
+      </div>
 
-      <Posts/>
     </div>
   );
 }

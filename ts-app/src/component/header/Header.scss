@@ -1,0 +1,55 @@
+.header-container {
+    z-index: 999;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--primary-color0);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 0px 8px 1px var(--primary-color0);
+
+    .logo {
+        display: flex;
+        align-items: center;
+
+        svg {
+            width: 54px;
+            height: 54px;
+            margin-right: 24px;
+
+            path {
+                fill: #ffffff;
+            }
+        }
+
+        .app-name {
+            color: #ffffff;
+            font-size: 24px;
+        }
+    }
+
+    .links {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        display: flex;
+
+        li {
+           &:not(:last-child) {
+               margin-right: 24px;
+           }
+        }
+
+        a {
+            color: #ffffff;
+
+            &:hover {
+                color: var(--primary-color2);
+            }
+        }
+    }
+}

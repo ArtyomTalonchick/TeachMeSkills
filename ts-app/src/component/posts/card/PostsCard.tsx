@@ -19,7 +19,7 @@ const PostsCard: React.FC<PropsType> = ({ data }) => {
     return (
         <div className='post-card-container'>
         
-            {/* {data.image
+            {data.image
             ?
                 <img src={data.image} alt="Server error" className='image'/>
             :
@@ -27,11 +27,7 @@ const PostsCard: React.FC<PropsType> = ({ data }) => {
                     <div/>
                     <div/>
                 </div>
-            } */}
-
-            {data.image && 
-                <img src={data.image} alt="Server error" className='image'/>
-            }            
+            }    
 
             <div className='title'>
                 {data.title}
