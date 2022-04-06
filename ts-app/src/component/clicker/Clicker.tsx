@@ -37,7 +37,7 @@ const Clicker: React.FC = () => {
     const [count2, setCount2] = useState(0);
 
     useEffect(() => {
-        console.log(count, count2, PI);
+        // console.log(count, count2, PI);
     }, [count, count2]);
 
     const increment = () => {

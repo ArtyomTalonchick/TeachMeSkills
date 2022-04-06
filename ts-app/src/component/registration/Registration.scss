@@ -1,0 +1,15 @@
+.registration-container {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 24px;
+
+    display: flex;
+    flex-direction: column;
+
+
+    .text-field-container {
+        &:not(:last-child) {
+            margin-bottom: 24px;
+        }
+    }
+}

@@ -16,27 +16,29 @@ const Posts: React.FC<PropsType> = () => {
     const [error, setError] = useState(false);
 
     useEffect(() => {
-        console.log(posts);
+        // console.log(posts);
     }, [posts]);
 
     useEffect(() => {
-        setLoading(true);
-        setTimeout(fetchData, 2000);        
+        fetchData();
     }, []);
 
     const fetchData = () => {
-        fetch(URL)
-            .then((response) => response.json())
-            .then((data) => {
-                const posts = data.results as PostType[];
-                setPosts(posts);
-            })
-            .catch(() => {
-                setError(true);
-            })
-            .finally(() => {
-                setLoading(false);
-            })
+        setLoading(true);
+        setTimeout(() => {        
+            fetch(URL)
+                .then((response) => response.json())
+                .then((data) => {
+                    const posts = data.results as PostType[];
+                    setPosts(posts);
+                })
+                .catch(() => {
+                    setError(true);
+                })
+                .finally(() => {
+                    setLoading(false);
+                })
+        }, 0);   
     }
 
     return (

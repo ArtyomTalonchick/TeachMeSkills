@@ -1,11 +1,9 @@
 import React from 'react';
-// import Clicker from './component/clicker/Clicker';
-// import Button from './component/button/Button';
-// import Timer from './component/timer/Timer';
 import Header from './component/header/Header';
-import Posts from './component/posts/Posts';
+// import Posts from './component/posts/Posts';
 
 import './App.scss';
+import Registration from './component/registration/Registration';
 
 
 const App: React.FC = () => {
@@ -15,10 +13,9 @@ const App: React.FC = () => {
     <div className="app-container">
       <Header/>
       <div className="app-content">
-        {/* <Clicker/> */}
-        {/* <Timer/> */}
+        <Registration/>
 
-        <Posts/>
+        {/* <Posts/> */}
       </div>
 
     </div>

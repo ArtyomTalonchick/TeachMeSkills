@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
+import Timer from "../timer/Timer";
 
 import "./Header.scss";
-import { ReactComponent as Logo} from "../../assets/logo.svg";
+import { ReactComponent as LogoIcon} from "../../assets/logo.svg";
 
 const Header: React.FC = () => {
     return (
         <nav className="header-container">
             <div className="logo">
-                <Logo/>
+                <LogoIcon/>
                 <div className="app-name">
                     Blog Online
                 </div>
@@ -23,7 +24,7 @@ const Header: React.FC = () => {
             </ul>
 
             <div>
-
+                <Timer/>
             </div>
          
         </nav>
