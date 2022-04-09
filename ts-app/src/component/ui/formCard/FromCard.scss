@@ -1,4 +1,4 @@
-.registration-container {
+.form-card-container {
     background-color: #fff;
     border-radius: 16px;
     padding: 24px;
@@ -7,9 +7,16 @@
     flex-direction: column;
 
 
+    .header {
+        font-size: 24px;
+        font-weight: 800;
+        margin-bottom: 24px;
+    }
+
+
     .text-field-container {
         &:not(:last-child) {
-            margin-bottom: 24px;
+            margin-bottom: 16px;
         }
     }
 }

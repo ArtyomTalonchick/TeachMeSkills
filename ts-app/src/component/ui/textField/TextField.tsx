@@ -1,23 +1,40 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import FormValuesType from "../../../types/formValuesType";
 
 import "./TextField.scss";
 
 type PropsType = {
+    autofocus?: boolean
     label: string
     type?: string
-    value: string
-    setValue: (v: string) => void
+    name: string
+    values: FormValuesType
+    setValues: (callback: (prevValue: FormValuesType) => FormValuesType) => void
 }
 
 const TextField: React.FC<PropsType> = ({
+        autofocus,
         label,
         type="text",
-        value,
-        setValue,
+        name,
+        values,
+        setValues,
     }) => {
+    
+    const nameRef = useRef<HTMLInputElement>(null);
+    
+    useEffect(() => {
+        if (autofocus) {
+            nameRef.current?.focus();
+        }
+    }, []);
+
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(event.target.value);
+        setValues((prevValues) => ({
+            ...prevValues,
+            [name]: event.target.value,
+        }));
     }
 
     return (
@@ -26,7 +43,8 @@ const TextField: React.FC<PropsType> = ({
                 {label}
             </div>
             <input
-                value={value}
+                ref={nameRef}
+                value={values[name] || ""}
                 onChange={handleChange}
                 className="input"
                 type={type}

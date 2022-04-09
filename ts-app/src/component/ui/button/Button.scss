@@ -1,0 +1,16 @@
+.button-container {
+    background-color: var(--primary-color1);
+    border: none;
+    outline: none;
+    border-radius: 16px;
+    height: 32px;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--primary-color2);
+    }
+    &:active {
+        background-color: var(--primary-color0);
+    }
+}
