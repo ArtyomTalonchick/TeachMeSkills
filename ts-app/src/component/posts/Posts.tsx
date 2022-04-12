@@ -1,6 +1,6 @@
 import React from 'react';
 import usePosts from './usePosts';
-import PostsCard from './card/PostsCard';
+import PostsCard from './postCard/PostCard';
 
 import "./Posts.scss";
 

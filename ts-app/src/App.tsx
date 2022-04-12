@@ -5,6 +5,7 @@ import Login from './component/login/Login';
 import Posts from './component/posts/Posts';
 
 import './App.scss';
+import Post from './component/post/Post';
 
 const App: React.FC = () => {
 
@@ -14,7 +15,9 @@ const App: React.FC = () => {
         <div className="app-content">
           {/* <Registration/> */}
 
-            <Login/>
+            {/* <Login/> */}
+            <Post id={12}/>
+            
 
           {/* <Posts/> */}
         </div>
