@@ -1,0 +1,7 @@
+{
+    "login.name": "Name",
+    "login.email": "Email",
+    "login.password": "Password",
+    "login.confirmPassword": "Confirm password",
+    "login.submit": "Login!"
+}

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import PostType from '../../types/postType';
+import React from 'react';
+import usePosts from './usePosts';
 import PostsCard from './card/PostsCard';
 
 import "./Posts.scss";
@@ -7,39 +7,8 @@ import "./Posts.scss";
 type PropsType = {};
 
 
-const URL = "https://studapi.teachmeskills.by/blog/posts/?limit=50&offset=0";
-
 const Posts: React.FC<PropsType> = () => {
-
-    const [posts, setPosts] = useState<PostType[]>([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
-
-    useEffect(() => {
-        // console.log(posts);
-    }, [posts]);
-
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    const fetchData = () => {
-        setLoading(true);
-        setTimeout(() => {        
-            fetch(URL)
-                .then((response) => response.json())
-                .then((data) => {
-                    const posts = data.results as PostType[];
-                    setPosts(posts);
-                })
-                .catch(() => {
-                    setError(true);
-                })
-                .finally(() => {
-                    setLoading(false);
-                })
-        }, 0);   
-    }
+    const { posts, loading, error } = usePosts();
 
     return (
         <div className='posts-container'>

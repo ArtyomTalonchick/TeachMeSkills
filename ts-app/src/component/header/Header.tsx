@@ -1,19 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import Timer from "../timer/Timer";
 
 import "./Header.scss";
 import { ReactComponent as LogoIcon} from "../../assets/logo.svg";
-import LanguageContext from "../../contexts/LanguageContext";
+import useTranslate from "../hooks/useTranslate";
 
 const Header: React.FC = () => {
-
-    const { lang, setLang } = useContext(LanguageContext);
-
-    const toggleLang = () => {
-        console.log(1);
-        setLang((prevValue: string) => prevValue === "en" ? "ru" : "en");
-        console.log(2);
-    }
+    const { lang, setLang } = useTranslate();
 
     return (
         <nav className="header-container">
@@ -34,13 +27,16 @@ const Header: React.FC = () => {
             </ul>
 
             <div>
-                <div>
-                    {lang}
-                </div>
-                <button onClick={toggleLang}>
-                    Toggle lang
-                </button>
-
+                {lang === "en"
+                    ?
+                        <button onClick={() => setLang("ru")}>
+                            ru
+                        </button>
+                    :
+                        <button onClick={() => setLang("en")}>
+                            en
+                        </button>
+                }
                 <Timer/>
             </div>
          

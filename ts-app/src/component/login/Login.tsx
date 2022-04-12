@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
-import LanguageContext from "../../contexts/LanguageContext";
+import React, { useState } from "react";
 import FormValuesType from "../../types/formValuesType";
+import useTranslate from "../hooks/useTranslate";
 import Button from "../ui/button/Button";
 import FormCard from "../ui/formCard/FormCard";
 import TextField from "../ui/textField/TextField";
@@ -8,8 +8,7 @@ import TextField from "../ui/textField/TextField";
 
 const Login: React.FC = () => {
     const [values, setValues] = useState<FormValuesType>({});
-    const { lang } = useContext(LanguageContext);
-    console.log(lang);
+    const { t } = useTranslate();
 
     const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
@@ -21,34 +20,34 @@ const Login: React.FC = () => {
         <FormCard>
             <TextField
                 autofocus={true}
-                label={lang === "en" ? "Name" : "Имя"}
+                label={t("login.name")}
                 name="name"
                 values={values}
                 setValues={setValues}
             />
             <TextField
-                label="Email"
+                label={t("login.email")}
                 type="email"
                 name="email"
                 values={values}
                 setValues={setValues}
             />
             <TextField
-                label="Password"
+                label={t("login.password")}
                 type="password"
                 name="password"
                 values={values}
                 setValues={setValues}
             />
             <TextField
-                label="Confirm Password"
+                label={t("login.confirmPassword")}
                 type="password"
                 name="confirmPassword"
                 values={values}
                 setValues={setValues}
             />
             <Button onClick={handleSubmit}>
-                Login
+                {t("login.submit")}
             </Button>
         </FormCard>
     )

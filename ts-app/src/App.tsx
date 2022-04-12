@@ -5,13 +5,10 @@ import Login from './component/login/Login';
 import Posts from './component/posts/Posts';
 
 import './App.scss';
-import LanguageContext from './contexts/LanguageContext';
 
 const App: React.FC = () => {
-  const [lang, setLang] = useState("ru");
 
   return (
-    <LanguageContext.Provider value={{lang, setLang}}>
       <div className="app-container">
           <Header/>
         <div className="app-content">
@@ -22,7 +19,6 @@ const App: React.FC = () => {
           {/* <Posts/> */}
         </div>
       </div>
-    </LanguageContext.Provider>
   );
 }
 
