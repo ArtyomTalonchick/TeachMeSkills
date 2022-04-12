@@ -9,9 +9,10 @@ const Header: React.FC = () => {
 
     const { lang, setLang } = useContext(LanguageContext);
 
-
     const toggleLang = () => {
-        setLang((prevValue: any) => prevValue === "en" ? "ru" : "en");
+        console.log(1);
+        setLang((prevValue: string) => prevValue === "en" ? "ru" : "en");
+        console.log(2);
     }
 
     return (
