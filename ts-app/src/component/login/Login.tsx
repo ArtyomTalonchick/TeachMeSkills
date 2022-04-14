@@ -17,9 +17,9 @@ const Login: React.FC = () => {
     }
 
     return (
-        <FormCard>
+        <FormCard header="Login">
             <TextField
-                autofocus={true}
+                autofocus
                 label={t("login.name")}
                 name="name"
                 values={values}

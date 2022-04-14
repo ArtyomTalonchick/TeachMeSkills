@@ -50,6 +50,11 @@
             &:hover {
                 color: var(--primary-color2);
             }
+
+            &._active {
+                font-weight: 600;
+                text-transform: uppercase;
+            }
         }
     }
 }

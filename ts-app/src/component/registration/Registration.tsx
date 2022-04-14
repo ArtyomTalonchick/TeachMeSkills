@@ -14,6 +14,7 @@ const Registration: React.FC = () => {
     return (
         <FormCard header="Registration">
             <TextField
+                autofocus
                 label="Email"
                 type="email"
                 name="email"

@@ -1,0 +1,39 @@
+.post-card-container {
+    padding: 24px;
+    background-color: var(--card-color);
+    border-radius: 8px;
+    max-width: 200px;
+    max-height: 400px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .image {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 24px;
+        border-radius: 8px;
+        border: 1px solid var(--primary-color0);
+    }
+
+    .title {
+        font-size: 24px;
+        margin-bottom: 24px;
+        color: var(--header-color);
+    }
+
+    .text {
+        font-size: 18px;
+        margin-bottom: 24px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .date {
+        font-size: 16px;
+        color: var(--primary-color2);
+    }
+
+
+}
