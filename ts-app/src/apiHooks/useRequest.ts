@@ -1,37 +1,34 @@
 import { useEffect, useState } from 'react';
-import PostType from '../../types/postType';
 
-const URL = "https://studapi.teachmeskills.by/blog/posts/?limit=50&offset=0";
+const useRequest = <T>(defValue: T, url: string) => {
 
-const usePosts = () => {
-
-    const [posts, setPosts] = useState<PostType[]>([]);
+    const [data, setData] = useState<T>(defValue);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [url]);
 
     const fetchData = () => {
         setLoading(true);
+        setData(defValue);
         setTimeout(() => {
-            fetch(URL)
+            fetch(url)
                 .then((response) => response.json())
                 .then((data) => {
-                    const posts = data.results as PostType[];
-                    setPosts(posts);
+                    setData(data as T);
                 })
                 .catch(() => {
                     setError(true);
                 })
                 .finally(() => {
                     setLoading(false);
-                })
-        }, 0);
+                });
+        });
     }
 
-    return { posts, loading, error };
+    return { data, loading, error };
 }
 
-export default usePosts;
+export default useRequest;
