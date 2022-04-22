@@ -1,17 +1,17 @@
 .posts-container {
     margin: 48px;
 
-    .pagination {
-        margin: 0 auto 24px;
-        display: flex;
-        align-items: center;
-    }
-
     .cards {
         display: flex;
         align-items: stretch;
         justify-content: space-between;
         flex-wrap: wrap;
         gap: 24px;
+    }
+
+    .posts-filter {
+        display: flex;
+        align-items: center;
+        margin-bottom: 24px;
     }
 }
