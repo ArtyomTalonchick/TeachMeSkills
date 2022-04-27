@@ -1,4 +1,4 @@
-import React, {useReducer } from 'react';
+import React, { useReducer } from 'react';
 import usePosts from '../../apiHooks/usePosts';
 import PostsCard from './card/PostCard';
 import PostsFilter from './PostsFilter';

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Header from './component/header/Header';
+import Clicker from './component/clicker/Clicker';
 import Registration from './component/registration/Registration';
 import Login from './component/login/Login';
 import Posts from './component/posts/Posts';
@@ -17,6 +18,13 @@ const App: React.FC = () => {
         <div className="app-content">
 
             <Routes>
+              <Route path="/clicker/" element={
+                <div>
+                  <Clicker/>
+                  <Clicker/>
+                  <Clicker/>
+                </div>
+              } />
               <Route path="/login/*" element={<Login/>} />
               <Route path="/registration/*" element={<Registration/>} />
               <Route path="/posts" >
