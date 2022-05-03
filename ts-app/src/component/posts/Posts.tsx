@@ -1,5 +1,6 @@
-import React, { useReducer } from 'react';
-import usePosts from '../../apiHooks/usePosts';
+import React, { useEffect, useReducer } from 'react';
+import { useSelector } from "../hooks/useSelector";
+import { useActions } from '../hooks/useActions';
 import PostsCard from './card/PostCard';
 import PostsFilter from './PostsFilter';
 import { initialState, PostsFilterReducer } from './PostsFilterReducer';
@@ -10,23 +11,31 @@ type PropsType = {};
 
 const Posts: React.FC<PropsType> = () => {
     const [state, dispatch] = useReducer(PostsFilterReducer, initialState);
+    const { fetchPosts } = useActions();
 
-    const { data, loading, error } = usePosts(state);
+    const data = useSelector(state  => state.posts.data);
+    const count = useSelector(state  => state.posts.count);
+    const loading = useSelector(state  => state.posts.loading);
+    const error = useSelector(state  => state.posts.error);
+
+    useEffect(() => {
+        fetchPosts(state);
+    }, [state])
 
     return (
         <div className='posts-container'>
 
             <PostsFilter 
-                count={data.count}
+                count={count}
                 state={state}
                 dispatch={dispatch}
             />
 
             <div className='cards'>
-                {data.results.map((item) => <PostsCard key={item.id} data={item}/>)}
+                {data.map((item) => <PostsCard key={item.id} data={item}/>)}
             </div>
             {loading && "Loading..."}
-            {error && "Error ("}
+            {error}
         </div>
     )
 }
