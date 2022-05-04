@@ -33,6 +33,29 @@
     .date {
         font-size: 16px;
         color: var(--primary-color2);
+        margin-right: auto;
+    }
+
+    .icon {
+        width: 16px;
+        height: 16px;
+
+        &._liked {
+            path {
+                fill: #33aa33;
+            }
+        }
+
+        &._disliked {
+            path {
+                fill: #aa3333;
+            }
+        }
+    }
+
+    .actions-line {
+        display: flex;
+        align-items: center;
     }
 
 
