@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from "axios";
-import PostsFilterType from "../../component/posts/PostsFilterTypes";
+import PostsFilterType from "../../component/postsPage/PostsFilterTypes";
 import PostType from "../../types/postType";
 
 const URL = "https://studapi.teachmeskills.by/blog/posts/";

@@ -5,8 +5,6 @@ import TextField from '../ui/textField/TextField';
 import PostsFilterType, { PostsOrder } from './PostsFilterTypes';
 import { setLimit, setOrdering, setPage, setAuthor, setLesson } from './PostsFilterActionCreators';
 
-import "./Posts.scss";
-
 type PropsType = {
     count: number
     state: PostsFilterType,

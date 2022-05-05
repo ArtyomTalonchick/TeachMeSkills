@@ -5,11 +5,11 @@ import PostsCard from './card/PostCard';
 import PostsFilter from './PostsFilter';
 import { initialState, PostsFilterReducer } from './PostsFilterReducer';
 
-import "./Posts.scss";
+import "./PostsPage.scss";
 
 type PropsType = {};
 
-const Posts: React.FC<PropsType> = () => {
+const PostsPage: React.FC<PropsType> = () => {
     const [state, dispatch] = useReducer(PostsFilterReducer, initialState);
     const { fetchPosts } = useActions();
 
@@ -41,4 +41,4 @@ const Posts: React.FC<PropsType> = () => {
 }
 
 
-export default Posts;
+export default PostsPage;
