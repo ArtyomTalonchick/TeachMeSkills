@@ -8,6 +8,7 @@ import Image from '../../image/Image';
 import "./PostCard.scss";
 import { ReactComponent as LikeIcon } from "../../../assets/like.svg";
 import { ReactComponent as DislikeIcon } from "../../../assets/dislike.svg";
+import { ReactComponent as MarkIcon } from "../../../assets/mark.svg";
 import { useActions } from '../../hooks/useActions';
 import { useSelector } from '../../hooks/useSelector';
 
@@ -19,10 +20,14 @@ type PropsType = {
 
 const PostCard: React.FC<PropsType> = ({ data }) => {
     const navigate = useNavigate();
-    const { likePost, dislikePost } = useActions();
+    const { likePost, dislikePost, markPost } = useActions();
     const grades = useSelector(state => state.posts.grades);
     const isLiked = grades[data.id] === PostGrade.LIKE;
     const isDisliked = grades[data.id] === PostGrade.DISLIKE;
+
+    
+    const marks = useSelector(state => state.posts.marks);
+    const isMarked = marks.includes(data.id);
 
     const handleClick = () => {
         navigate(`/posts/${data.id}`);
@@ -30,6 +35,7 @@ const PostCard: React.FC<PropsType> = ({ data }) => {
 
     const handleClickLike = () => likePost(data.id);
     const handleClickDislike = () => dislikePost(data.id);
+    const handleClickMark = () => markPost(data.id);
 
     return (
         <div className='post-card-container'>
@@ -50,6 +56,9 @@ const PostCard: React.FC<PropsType> = ({ data }) => {
                 </IconButton>
                 <IconButton onClick={handleClickDislike}>
                     <DislikeIcon className={`icon ${isDisliked ? "_disliked" : ""}`}/>
+                </IconButton>
+                <IconButton onClick={handleClickMark}>
+                    <MarkIcon className={`icon ${isMarked ? "_marked" : ""}`}/>
                 </IconButton>
             </div>
         </div>

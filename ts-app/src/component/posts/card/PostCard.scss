@@ -51,6 +51,12 @@
                 fill: #aa3333;
             }
         }
+
+        &._marked {
+            path {
+                fill: #faaa33;
+            }
+        }
     }
 
     .actions-line {
