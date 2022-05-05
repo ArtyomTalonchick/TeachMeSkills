@@ -15,26 +15,23 @@ const App: React.FC = () => {
     <BrowserRouter>
       <div className="app-container">
         <Header/>
-        <div className="app-content">
 
-            <Routes>
-              <Route path="/clicker/" element={
-                <div>
-                  <Clicker/>
-                  <Clicker/>
-                  <Clicker/>
-                </div>
-              } />
-              <Route path="/login/*" element={<Login/>} />
-              <Route path="/registration/*" element={<Registration/>} />
-              <Route path="/posts" >
-                <Route index element={<PostsPage/>} />
-                <Route path=":id" element={<PostPage/>} />
-              </Route>
-              <Route path="*" element={<Navigate to={"/posts"}/>} />
-            </Routes>
-
-        </div>
+          <Routes>
+            <Route path="/clicker/" element={
+              <div>
+                <Clicker/>
+                <Clicker/>
+                <Clicker/>
+              </div>
+            } />
+            <Route path="/login/*" element={<Login/>} />
+            <Route path="/registration/*" element={<Registration/>} />
+            <Route path="/posts" >
+              <Route index element={<PostsPage/>} />
+              <Route path=":id" element={<PostPage/>} />
+            </Route>
+            <Route path="*" element={<Navigate to={"/posts"}/>} />
+          </Routes>
       </div>
     </BrowserRouter>
   );

@@ -17,39 +17,41 @@ const Login: React.FC = () => {
     }
 
     return (
-        <FormCard header="Login">
-            <FormTextField
-                autofocus
-                label={t("login.name")}
-                name="name"
-                values={values}
-                setValues={setValues}
-            />
-            <FormTextField
-                label={t("login.email")}
-                type="email"
-                name="email"
-                values={values}
-                setValues={setValues}
-            />
-            <FormTextField
-                label={t("login.password")}
-                type="password"
-                name="password"
-                values={values}
-                setValues={setValues}
-            />
-            <FormTextField
-                label={t("login.confirmPassword")}
-                type="password"
-                name="confirmPassword"
-                values={values}
-                setValues={setValues}
-            />
-            <Button onClick={handleSubmit}>
-                {t("login.submit")}
-            </Button>
-        </FormCard>
+        <div className="center__content">
+            <FormCard header="Login">
+                <FormTextField
+                    autofocus
+                    label={t("login.name")}
+                    name="name"
+                    values={values}
+                    setValues={setValues}
+                />
+                <FormTextField
+                    label={t("login.email")}
+                    type="email"
+                    name="email"
+                    values={values}
+                    setValues={setValues}
+                />
+                <FormTextField
+                    label={t("login.password")}
+                    type="password"
+                    name="password"
+                    values={values}
+                    setValues={setValues}
+                />
+                <FormTextField
+                    label={t("login.confirmPassword")}
+                    type="password"
+                    name="confirmPassword"
+                    values={values}
+                    setValues={setValues}
+                />
+                <Button onClick={handleSubmit}>
+                    {t("login.submit")}
+                </Button>
+            </FormCard>
+        </div>
     )
 }
 

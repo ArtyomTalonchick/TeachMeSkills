@@ -1,11 +1,13 @@
 .app-container {
   background-color: var(--background-color);
-  display: flex;
   min-height: 100vh;
+  
+  padding-top: 60px;
+}
+
+.center__content {
+  height: 100%;
+  display: flex;
   align-items: center;
   justify-content: center;
-
-  .app-content {
-    margin-top: 60px;
-  }
 }
