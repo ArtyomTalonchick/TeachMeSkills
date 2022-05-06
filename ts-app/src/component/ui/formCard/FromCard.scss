@@ -3,6 +3,7 @@
     border-radius: 16px;
     padding: 24px;
 
+    position: relative;
     display: flex;
     flex-direction: column;
 
@@ -13,10 +14,24 @@
         margin-bottom: 24px;
     }
 
-
     .text-field-container {
         &:not(:last-child) {
             margin-bottom: 16px;
         }
+    }
+
+    .loader {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: red;
+        opacity: .1;
+        z-index: 9;
+    }
+
+    .form-error {
+        color: #aa0000;
     }
 }
