@@ -62,6 +62,10 @@
         display: flex;
     }
 
+    .logout-button {
+        margin-right: 24px;
+    }
+
     .lang-buttun {
         margin-left: 24px;
         cursor: pointer;
@@ -77,4 +81,11 @@
             background-color: var(--primary-color2);
         }
     }
+}
+
+.header-username {
+    color: white;
+    margin-right: 18px;
+    display: flex;
+    align-items: center;    
 }

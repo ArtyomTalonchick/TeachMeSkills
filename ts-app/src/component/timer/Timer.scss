@@ -6,21 +6,4 @@
         color: #fff;
         margin-right: 8px;
     }
-
-    .icon-button {
-        cursor: pointer;
-        width: 24px;
-        height: 24px;
-
-        path {
-            fill: #fff;
-        }
-
-        &:hover {
-            path {
-                fill: var(--primary-color2);
-            }
-        }
-    }
-
 }
