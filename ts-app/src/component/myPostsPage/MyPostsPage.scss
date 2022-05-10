@@ -1,0 +1,15 @@
+.posts-container {
+    padding: 48px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+
+    .cards {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+}

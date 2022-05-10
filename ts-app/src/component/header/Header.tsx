@@ -15,6 +15,7 @@ import { ReactComponent as LoginIcon } from "../../assets/login.svg";
 const LINKS = [
     { url: "/registration", text: "Registration" },
     { url: "/posts", text: "Posts" },
+    { url: "/myposts", text: "My Posts" },
 ]
 
 const Header: React.FC = () => {

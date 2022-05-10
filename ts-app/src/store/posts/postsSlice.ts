@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { PostGrade } from '../../enums/PostGrade';
 import Storage from "../../helpers/Storage";
 import PostType from "../../types/postType"
-import { fetchAllPosts, fetchPosts } from "./postsThunks";
+import { fetchAllPosts, fetchMyPosts, fetchPosts } from "./postsThunks";
 
 
 type GradesType = {
@@ -97,6 +97,22 @@ const postsSlice = createSlice({
             state.data = payload.data;
             state.count = payload.count;
         });
+
+        builder.addCase(fetchMyPosts.pending, (state) => {
+            state.loading = true;
+            state.error = undefined;
+            state.data = [];
+        });
+
+        builder.addCase(fetchMyPosts.rejected, (state, { payload } ) => {
+            state.loading = false;
+            state.error = "Error";
+        });
+
+        builder.addCase(fetchMyPosts.fulfilled, (state, { payload }) => {
+            state.loading = false;
+            state.data = payload;
+        });
     }
 });
 
@@ -105,4 +121,5 @@ export const postsActions = {
     ...postsSlice.actions,
     fetchPosts,
     fetchAllPosts,
+    fetchMyPosts,
 };
