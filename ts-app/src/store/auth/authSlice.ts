@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { createTokens } from "./authThunks";
 
 
@@ -17,7 +17,11 @@ const initialState: StoreType = {
 const authSlice = createSlice({
     name: "auth",
     initialState,
-    reducers: {},
+    reducers: {
+        setAuthError: (state, { payload }: PayloadAction<boolean>) => {
+            state.error = payload;
+        }
+    },
     extraReducers: builder => {
         builder.addCase(createTokens.pending, (state) => {
             state.loading = true;
