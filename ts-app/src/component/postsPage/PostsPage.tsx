@@ -14,11 +14,13 @@ const PostsPage: React.FC<PropsType> = () => {
 
     return (
         <div className='posts-container'>
-            <Button onClick={handleToggleMode}>
-                Toggle
-            </Button>
+            <div className="toggle-button">
+                <Button onClick={handleToggleMode}>
+                    {isServerMode ? "Front" : "Server"}
+                </Button>
+            </div>
             <div className='mode-container'>
-                {isServerMode ?<PostsServer/> : <PostsFront/>}
+                {isServerMode ? <PostsServer/> : <PostsFront/>}
             </div>
         </div>
     )

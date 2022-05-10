@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ToggleButton, ToggleButtonGroup } from '@mui/material';
+import { Paper, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { useActions } from '../hooks/useActions';
 import { useSelector } from '../hooks/useSelector';
 import PostCard from './card/PostCard';
@@ -47,25 +47,30 @@ const PostsFront: React.FC = () => {
     };
 
     return (
-        <div className='posts-container'>
-            <ToggleButtonGroup
-                value={mode}
-                exclusive
-                onChange={handleToggleMode}
-                >
-                <ToggleButton value={Mode.LIKED}>
-                    Liked
-                </ToggleButton>
-                <ToggleButton value={Mode.DISLIKED}>
-                    Disliked
-                </ToggleButton>
-                <ToggleButton value={Mode.MARKED}>
-                    Marked
-                </ToggleButton>
-            </ToggleButtonGroup>
-            <div className='cards'>
-                {filterdData.map((item) => <PostCard key={item.id} data={item}/>)}
-            </div>
+        <div>
+            <Paper elevation={3} className='posts-filter'>
+                <ToggleButtonGroup
+                    value={mode}
+                    exclusive
+                    onChange={handleToggleMode}
+                    >
+                    <ToggleButton value={Mode.LIKED}>
+                        Liked
+                    </ToggleButton>
+                    <ToggleButton value={Mode.DISLIKED}>
+                        Disliked
+                    </ToggleButton>
+                    <ToggleButton value={Mode.MARKED}>
+                        Marked
+                    </ToggleButton>
+                </ToggleButtonGroup>
+            </Paper>
+            {!loading && !error &&
+                <div className='cards'>
+                    {filterdData.map((item) => <PostCard key={item.id} data={item}/>)}
+                    {filterdData.length === 0 && "Data is empty"}
+                </div>
+            }
             {loading && "Loading..."}
             {error}      
         </div>

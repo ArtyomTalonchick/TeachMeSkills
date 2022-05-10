@@ -16,7 +16,7 @@ const PostPage: React.FC = () => {
     const { fetchPost } = useActions();
 
     useEffect(() => {
-        fetchPost("fdsfds");
+        fetchPost(id);
     }, [id]);
 
 

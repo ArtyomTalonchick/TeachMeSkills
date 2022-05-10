@@ -1,0 +1,37 @@
+.select-container {
+    flex-grow: 1;
+    min-width: 200px;
+    
+    .label {
+        margin-bottom: 4px;
+        color: var(--header-color);
+        font-size: 16px;
+    }
+
+    * {
+        border: none !important;
+        outline: none !important;
+    }
+
+    .MuiSelect-select {
+        border: 1px solid var(--primary-color2) !important;
+        border-radius: 16px !important;
+        padding: 8px 16px;
+        height: 15px !important;
+        min-height: 15px !important;
+        line-height: initial;
+
+        &:hover {
+            border-color: var(--primary-color1);
+        }
+
+        &[aria-expanded="true"] {
+            border-color: var(--primary-color0);
+            outline: 1px solid var(--primary-color0) !important;
+        }
+    }
+}
+
+// .MuiMenu-paper {
+//     margin-top: 28px;
+// }

@@ -21,7 +21,7 @@ const PostsServer: React.FC<PropsType> = () => {
     }, [state])
 
     return (
-        <div className='posts-container'>
+        <div>
 
             <PostsFilter 
                 count={count}

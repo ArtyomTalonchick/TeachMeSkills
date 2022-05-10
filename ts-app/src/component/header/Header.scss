@@ -57,4 +57,24 @@
             }
         }
     }
+
+    .controls {
+        display: flex;
+    }
+
+    .lang-buttun {
+        margin-left: 24px;
+        cursor: pointer;
+        border-radius: 50%;
+        height: 24px;
+        width: 24px;
+        border: none;
+        outline: none;
+        padding: 0;
+        background-color: #ffffff;
+
+        &:hover {
+            background-color: var(--primary-color2);
+        }
+    }
 }

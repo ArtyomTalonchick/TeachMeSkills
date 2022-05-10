@@ -3,6 +3,13 @@
     height: 100%;
     width: 100%;
     box-sizing: border-box;
+    position: relative;
+
+    .toggle-button {
+        position: absolute;
+        top: 8px;
+        right: 48px;
+    }
 
     .cards {
         display: flex;
@@ -14,7 +21,11 @@
 
     .posts-filter {
         display: flex;
-        align-items: center;
+        align-items: flex-end;
+        justify-content: space-around;
+        gap: 16px;
         margin-bottom: 24px;
+        padding: 24px;
+        flex-wrap: wrap;
     }
 }
