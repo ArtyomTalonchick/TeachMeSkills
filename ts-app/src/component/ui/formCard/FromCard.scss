@@ -7,6 +7,11 @@
     display: flex;
     flex-direction: column;
 
+    .form-content {
+        &._loading {
+            filter: blur(3px);
+        }
+    }
 
     .header {
         font-size: 24px;
@@ -26,12 +31,17 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: red;
-        opacity: .1;
+        border-radius: 16px;
+        background-color: rgba(255, 255, 255, 0.1);
         z-index: 9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
     }
 
     .form-error {
         color: #aa0000;
+        margin-bottom: 16px;
     }
 }
