@@ -12,11 +12,13 @@ import { ReactComponent as LogoIcon} from "../../assets/logo.svg";
 import { ReactComponent as LogoutIcon } from "../../assets/logout.svg";
 import { ReactComponent as LoginIcon } from "../../assets/login.svg";
 
-const LINKS = [
+const getLinks = (logged: boolean) => ([
     { url: "/registration", text: "Registration" },
     { url: "/posts", text: "Posts" },
-    { url: "/myposts", text: "My Posts" },
-]
+    ...(!logged ? [] : [
+        { url: "/myposts", text: "My Posts" },
+    ])
+])
 
 const Header: React.FC = () => {
     const { lang, setLang } = useTranslate();
@@ -24,6 +26,7 @@ const Header: React.FC = () => {
 
     const logged = useSelector(state => state.auth.logged);
     const { logout } = useActions();
+    const links = getLinks(logged);
 
     const handleLogout = () => {
         logout();
@@ -39,7 +42,7 @@ const Header: React.FC = () => {
             </div>
 
             <ul className="links">
-               {LINKS.map(({ url, text }) => 
+               {links.map(({ url, text }) => 
                     <li key={url + text}>
                         <NavLink to={url} className={({ isActive }) => isActive ? "_active" : ""}>
                             {text}
