@@ -14,7 +14,7 @@ const Login: React.FC = () => {
     const [validationsError, setValidationsError] = useState("");
     const { t } = useTranslate();
     const { createTokens, setAuthError } = useActions();
-    const loading = useSelector(state => state.auth.loading);
+    const loading = false;//useSelector(state => state.auth.loading);
     const serverError = useSelector(state => state.auth.error);
     const error: string = validationsError || (serverError ? "No active account found with the given credentials" : "");
 
