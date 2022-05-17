@@ -11,10 +11,10 @@ type PropsType = {
 const FormCard: React.FC<PropsType> = ({ header, loading, children }) => {
 
     return (
-        <form className={`form-card-container`}>
+        <form className={`form-card-container`} aria-label="Form">
             <div className={`form-content ${loading ? "_loading" : ""}`}>
                 {header &&
-                    <div className='header'>{header}</div>
+                    <div role="heading" aria-level={1} className='header'>{header}</div>
                 }
                 {children}
             </div>

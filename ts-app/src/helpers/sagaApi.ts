@@ -19,7 +19,7 @@ const URL = "https://studapi.teachmeskills.by";
 
 const authFetch = (method: Method) => function* (uri: string, data?: any): any {
     const runRequest = function* (): any {
-        return yield axios({
+        return yield axios.request({
             method,
             data,
             url: `${URL}${uri}`,
