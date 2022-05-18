@@ -12,7 +12,7 @@ const FormCard: React.FC<PropsType> = ({ header, loading, children }) => {
 
     return (
         <form className={`form-card-container`}>
-            <div className={`form-content ${loading ? "_loading" : ""}`}>
+            <div data-testid="form-content" className={`form-content ${loading ? "_loading" : ""}`}>
                 {header &&
                     <div className='header'>{header}</div>
                 }
