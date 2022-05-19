@@ -198,7 +198,15 @@ module.exports = {
 ```
 
 Babel поддерживает собственную конфигурацию в файле `.babelrc`
-Примеры плагинов: `@babel/proposal-class-properties`, `@babel/plugin-transform-classes`, `@babel/plugin-transform-arrow-functions`
+```
+{
+    "plugins": [
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-transform-classes",
+        "@babel/plugin-transform-arrow-functions"
+    ]
+}
+```
 
 # <a name="plugins"></a>  Плагины
 
