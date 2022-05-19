@@ -11,6 +11,7 @@
 - [Плагины](#plugins)
 - [Сервер для разработки](#server)
 - [Command Line Interface](#cli)
+- [TypeScript](#ts)
 - [Источники](#links)
 
 
@@ -280,6 +281,49 @@ npm run start
     "build": "webpack --mode='production'",
     "start": "webpack-dev-server --mode='development'"
 }
+```
+
+
+
+# <a name="ts"></a>  TypeScript
+
+Для работы с TypeScript используется лоадер [ts-loader](https://webpack.js.org/guides/typescript/)
+
+Установка:
+```
+npm i typescript ts-loader -D 
+```
+
+Настройка `tsconfig.json`:
+```
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "noImplicitAny": true,
+        "module": "es6",
+        "target": "es5",
+        "jsx": "react",
+        "allowJs": true,
+        "moduleResolution": "node"
+    }
+}
+```
+
+Использование:
+```
+module.exports = {
+    module: {
+        rules: [
+            {
+              test: /\.tsx?$/,
+              use: 'ts-loader',
+              exclude: /node_modules/,
+            },
+        ]
+    },
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js'],
+    },
 ```
 
 
