@@ -234,7 +234,7 @@ module.exports = {
 
 [Опции](https://github.com/jantimon/html-webpack-plugin#options)
 
-### <a name="HtmlWebpackPlugin"></a>  HtmlWebpackPlugin
+### <a name="CleanWebpackPlugin"></a>  CleanWebpackPlugin
 [CleanWebpackPlugin](https://www.npmjs.com/package/clean-webpack-plugin) удаляет все файлы внутри каталога `output.path` webpack, а также все неиспользуемые ресурсы webpack после каждой успешной перестройки
 
 ### <a name="Dotenv"></a>  Dotenv
