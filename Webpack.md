@@ -4,6 +4,7 @@
 - [Создание билда](#build)
 - [Точка выхода](#output)
 - [Режимы сборки](#mode)
+- [Devtool](#devtool)
 - [Зависимости](#dependencies)
 - [Loaders](#loaders)
 - [Babel](#babel)
@@ -98,6 +99,18 @@ Webpack поддерживает два режима сборки: *production* 
 ```
 module.exports = {
     mode: "production"
+}
+```
+
+
+# <a name="devtool"></a>  Devtool
+
+Этот параметр определяет, будут ли генерироваться исходные карты и каким образом.
+
+Установка режима Devtool:
+```
+module.exports = {
+    devtool: "source-map"
 }
 ```
 
