@@ -1,5 +1,6 @@
 import axios from "axios";
-import { all, put, takeEvery, spawn, call } from "redux-saga/effects";
+import { resolve } from "path";
+import { all, put, takeEvery, spawn, call, fork } from "redux-saga/effects";
 import sagaApi from "../../helpers/sagaApi";
 import PostType from "../../types/postType";
 import { postsActions } from "./postsSlice";
@@ -54,11 +55,20 @@ const fetchMyPostsWorker = function* () {
 };
 
 
+const failedSaga = function* () {
+    console.log("failedSaga");
+    throw new Error("saga error")
+};
+const successfulSaga = function* () {
+    console.log("successfulSaga");
+};
+
+
 const postsSaga = function* () {
-    yield all([
-        spawn(fetchAllPostsWatcher),
-        spawn(fetchMyPostsWatcher),
-    ]);
+    console.log("Start");
+    yield fork(failedSaga);
+    yield fork(successfulSaga);
+    console.log("End");
 }
 
 export default postsSaga;
