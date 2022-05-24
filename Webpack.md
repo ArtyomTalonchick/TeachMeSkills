@@ -5,6 +5,7 @@
 - [Точка выхода](#output)
 - [Режимы сборки](#mode)
 - [Зависимости](#dependencies)
+- [Target](#target)
 - [Loaders](#loaders)
 - [Babel](#babel)
 - [Плагины](#plugins)
@@ -115,6 +116,19 @@ npm i lodash
 import _ from "lodash";
 
 console.log(_.defaults({ "a": 1 }, { "a": 3, "b": 2 }));
+```
+
+# <a name="target"></a>  Target
+
+**[Target](https://webpack.js.org/configuration/target/)** - целевая среда компиляции.
+
+
+Использование:
+```
+module.exports = {
+  target: ["web", "es5"]
+}
+
 ```
 
 
