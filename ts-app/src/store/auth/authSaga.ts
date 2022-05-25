@@ -1,6 +1,7 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 import { all, put, takeEvery, spawn, call, takeLeading } from "redux-saga/effects";
 import sagaApi from "../../helpers/sagaApi";
+import Storage from "../../helpers/Storage";
 import FormValuesType from "../../types/formValuesType";
 import ProfileType from "../../types/profileType";
 import { authActions } from "./authSlice";
@@ -14,8 +15,13 @@ const fetchProfileWatcher = function* () {
 };
 
 const fetchProfileWorker = function* () {
-    const response: FetchProfileType = yield call(sagaApi.get, `/auth/users/me/`);
-    yield put(authActions.setProfile(response.data));
+    try {
+        const response: FetchProfileType = yield call(sagaApi.get, `/auth/users/me/`);
+        yield put(authActions.setProfile(response.data));
+    } catch {
+        console.warn("fetchProfileWorker error");
+
+    }
 };
 
 type CreateTokensType = {
@@ -44,11 +50,20 @@ const createTokensWorker = function* ({ payload }: PayloadAction<FormValuesType>
     }
 };
 
+const startUpSaga = function* () {
+    const storageTheme = Storage.get<string | undefined>("theme", undefined);
+    if (storageTheme) {
+        document.body.dataset.theme = storageTheme;
+        yield put(authActions.setTheme(storageTheme));
+    }
+}
+
 
 const authSaga = function* () {
     yield all([
         spawn(fetchProfileWatcher),
         spawn(createTokensWatcher),
+        spawn(startUpSaga),        
     ]);
 }
 

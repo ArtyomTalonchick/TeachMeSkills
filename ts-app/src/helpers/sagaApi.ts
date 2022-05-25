@@ -32,7 +32,7 @@ const authFetch = (method: Method) => function* (uri: string, data?: any): any {
     try {
         return yield call(runRequest);
     } catch (e: any) {
-        if (e.response.status === 401 && Storage.get("refresh", "")) {
+        if (e.response?.status === 401 && Storage.get("refresh", "")) {
             try {
                 yield call(refreshToken);
                 return yield call(runRequest);

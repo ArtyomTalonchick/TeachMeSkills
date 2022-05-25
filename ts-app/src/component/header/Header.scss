@@ -89,3 +89,12 @@
     display: flex;
     align-items: center;    
 }
+
+.header-theme {
+    svg {
+        width: 24px;
+        height: 24px;
+        margin-left: 24px;
+        cursor: pointer;
+    }
+}

@@ -11,6 +11,7 @@ type StoreType = {
     error: boolean,
     profile: ProfileType,
     logged: boolean,
+    theme?: string,
 }
 
 const initialState: StoreType = {
@@ -31,6 +32,14 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         fetchProfile: () => {},
+        toggleTheme: (state) => {
+            state.theme = state.theme !== "dark" ? "dark" : "";
+            document.body.dataset.theme = state.theme;
+            Storage.set("theme", state.theme);
+        },
+        setTheme: (state, { payload }: PayloadAction<string>) => {
+            state.theme = payload;
+        },
         setProfile: (state, { payload }: PayloadAction<ProfileType>) => {
             state.profile = payload;
         },

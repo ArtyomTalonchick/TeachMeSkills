@@ -1,4 +1,4 @@
-* {
+body {
   --background-color: #f5f8ff;
   --card-color: #ffffff;
   --primary-color0: #0172fe;
@@ -8,6 +8,21 @@
   --text-color: #9c9ea2;
 }
 
+body[data-theme="dark"] {
+  --background-color: #1f1f26;
+  --card-color: #41414f;
+  --primary-color0: #014598;
+  --primary-color1: #005999;
+  --primary-color2: #0089eb;
+  --header-color: #111111;
+  --text-color: #9c9ea2;
+}
+
+.MuiPaper-root,
+.form-card-container,
+.text-field-container .input {
+  background-color: var(--card-color) !important;
+}
 
 body {
   margin: 0;

@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import Username from "./username/Username";
 import { useSelector } from "../hooks/useSelector";
 import { useActions } from "../hooks/useActions";
+import ThemeControl from "./theme/ThemeControl";
 
 
 import "./Header.scss";
@@ -69,6 +70,8 @@ const Header: React.FC = () => {
                 </Link>
                 }
                 <Timer/>
+                <ThemeControl/>
+                <ThemeControl/>
                 <button
                     className="lang-buttun"
                     onClick={() => setLang(nextLang)}
