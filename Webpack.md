@@ -6,6 +6,7 @@
 - [Режимы сборки](#mode)
 - [Devtool](#devtool)
 - [Зависимости](#dependencies)
+- [Target](#target)
 - [Loaders](#loaders)
 - [Babel](#babel)
 - [Плагины](#plugins)
@@ -131,6 +132,18 @@ import _ from "lodash";
 console.log(_.defaults({ "a": 1 }, { "a": 3, "b": 2 }));
 ```
 
+# <a name="target"></a>  Target
+
+**[Target](https://webpack.js.org/configuration/target/)** - целевая среда компиляции.
+
+
+Использование:
+```
+module.exports = {
+  target: ["web", "es5"]
+}
+
+```
 
 # <a name="loaders"></a>  Loaders
 
@@ -239,7 +252,7 @@ module.exports = {
 [CleanWebpackPlugin](https://www.npmjs.com/package/clean-webpack-plugin) удаляет все файлы внутри каталога `output.path` webpack, а также все неиспользуемые ресурсы webpack после каждой успешной перестройки
 
 ### <a name="Dotenv"></a>  Dotenv
-[Dotenv](https://www.npmjs.com/package/dotenv) - модуль с нулевой зависимостью, который загружает переменные среды из файла `.env` в `process.env`
+[Dotenv](https://www.npmjs.com/package/dotenv]) - модуль с нулевой зависимостью, который загружает переменные среды из файла `.env` в `process.env`
 
 ### <a name="DefinePlugin"></a>  DefinePlugin
 [DefinePlugin](https://webpack.js.org/plugins/define-plugin/) - заменяет переменные в вашем коде другими значениями или выражениями во время компиляции
