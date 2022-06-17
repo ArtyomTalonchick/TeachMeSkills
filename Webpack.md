@@ -4,12 +4,15 @@
 - [Создание билда](#build)
 - [Точка выхода](#output)
 - [Режимы сборки](#mode)
+- [Devtool](#devtool)
 - [Зависимости](#dependencies)
+- [Target](#target)
 - [Loaders](#loaders)
 - [Babel](#babel)
 - [Плагины](#plugins)
 - [Сервер для разработки](#server)
 - [Command Line Interface](#cli)
+- [TypeScript](#ts)
 - [Источники](#links)
 
 
@@ -101,6 +104,18 @@ module.exports = {
 }
 ```
 
+
+# <a name="devtool"></a>  Devtool
+
+Этот параметр определяет, будут ли генерироваться исходные карты и каким образом.
+
+Установка режима Devtool:
+```
+module.exports = {
+    devtool: "source-map"
+}
+```
+
 # <a name="dependencies"></a>  Зависимости
 
 При использовании Webpack можно использовать зависимости из `node_modules`
@@ -117,6 +132,18 @@ import _ from "lodash";
 console.log(_.defaults({ "a": 1 }, { "a": 3, "b": 2 }));
 ```
 
+# <a name="target"></a>  Target
+
+**[Target](https://webpack.js.org/configuration/target/)** - целевая среда компиляции.
+
+
+Использование:
+```
+module.exports = {
+  target: ["web", "es5"]
+}
+
+```
 
 # <a name="loaders"></a>  Loaders
 
@@ -185,7 +212,15 @@ module.exports = {
 ```
 
 Babel поддерживает собственную конфигурацию в файле `.babelrc`
-Примеры плагинов: `@babel/proposal-class-properties`, `@babel/plugin-transform-classes`, `@babel/plugin-transform-arrow-functions`
+```
+{
+    "plugins": [
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-transform-classes",
+        "@babel/plugin-transform-arrow-functions"
+    ]
+}
+```
 
 # <a name="plugins"></a>  Плагины
 
@@ -213,11 +248,11 @@ module.exports = {
 
 [Опции](https://github.com/jantimon/html-webpack-plugin#options)
 
-### <a name="HtmlWebpackPlugin"></a>  HtmlWebpackPlugin
+### <a name="CleanWebpackPlugin"></a>  CleanWebpackPlugin
 [CleanWebpackPlugin](https://www.npmjs.com/package/clean-webpack-plugin) удаляет все файлы внутри каталога `output.path` webpack, а также все неиспользуемые ресурсы webpack после каждой успешной перестройки
 
 ### <a name="Dotenv"></a>  Dotenv
-[Dotenv](https://www.npmjs.com/package/dotenv) - модуль с нулевой зависимостью, который загружает переменные среды из файла `.env` в `process.env`
+[Dotenv](https://www.npmjs.com/package/dotenv]) - модуль с нулевой зависимостью, который загружает переменные среды из файла `.env` в `process.env`
 
 ### <a name="DefinePlugin"></a>  DefinePlugin
 [DefinePlugin](https://webpack.js.org/plugins/define-plugin/) - заменяет переменные в вашем коде другими значениями или выражениями во время компиляции
@@ -259,6 +294,49 @@ npm run start
     "build": "webpack --mode='production'",
     "start": "webpack-dev-server --mode='development'"
 }
+```
+
+
+
+# <a name="ts"></a>  TypeScript
+
+Для работы с TypeScript используется лоадер [ts-loader](https://webpack.js.org/guides/typescript/)
+
+Установка:
+```
+npm i typescript ts-loader -D 
+```
+
+Настройка `tsconfig.json`:
+```
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "noImplicitAny": true,
+        "module": "es6",
+        "target": "es5",
+        "jsx": "react",
+        "allowJs": true,
+        "moduleResolution": "node"
+    }
+}
+```
+
+Использование:
+```
+module.exports = {
+    module: {
+        rules: [
+            {
+              test: /\.tsx?$/,
+              use: 'ts-loader',
+              exclude: /node_modules/,
+            },
+        ]
+    },
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js'],
+    },
 ```
 
 
