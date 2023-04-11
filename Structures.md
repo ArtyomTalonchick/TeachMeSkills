@@ -82,7 +82,7 @@
 
 
 
-# <a name="weak__set__map"></a>  Map 
+# <a name="weak__set__map"></a>  WeakMap и WeakSet 
 
 [WeakMap и WeakSet](https://learn.javascript.ru/weakmap-weakset)
 
